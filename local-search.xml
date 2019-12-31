@@ -4,26 +4,38 @@
   
   
   <entry>
-    <title>test</title>
-    <link href="/2019/12/29/test/"/>
-    <url>/2019/12/29/test/</url>
+    <title>happy new year</title>
+    <link href="/2019/12/31/happy-new-year/"/>
+    <url>/2019/12/31/happy-new-year/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="元旦快乐"><a href="#元旦快乐" class="headerlink" title="元旦快乐"></a>元旦快乐</h1><p><strong>今天我们己经认识94天了</strong></p><hr><p><img src="/img/1.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>你是我温暖的手套，冰冷的啤酒，带着阳光味道的衬衫，日复一日的梦想。</strong></p><hr><p><img src="/img/h.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>春水初生，春林初盛，春风十里，不如你</strong></p><hr><p><img src="/img/g.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>这里荒芜寸草不生，后来你来这走了一遭，奇迹般万物生长，这里是我的心。</strong></p><hr><p><img src="/img/f.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>我想和你过漫无目地的日子，把世人的烦恼当作久远而荒唐的故事</strong></p><hr><p><img src="/img/d.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>纵然万劫不复，纵然相思入骨，我也待你眉眼如初，岁月如故。</strong></p><hr><p><img src="/img/e.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>在青山绿水之间,我想牵着你的手,走过这座桥,桥上是绿叶红花,桥下是流水人家,桥的那头是青丝,桥的这头是白发。</strong></p><hr><p><img src="/img/c.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>全天下的柔情共十分，你占八分，你喊了我名字那晚的凉风秋月占一分，其余所有占一分。</strong></p><hr><p><img src="/img/b.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>你的眼睛真好看，里面有日月冬夏、晴雨山川、花草鸟兽。但还是我的眼睛更好看，因为里面有你。</strong></p><hr><p><img src="/img/3.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>海底月是天上月，眼前人是心上人。</strong></p><hr><p><img src="/img/2.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"><br><strong>你我之间，所有的偶然，都是我蓄谋已久的爱。</strong></p><hr><p><img src="/img/i.jpg" srcset="/img/loading.gif" alt="markdown" title="markdown"></p><h3 id="mua"><a href="#mua" class="headerlink" title="mua~"></a>mua<del>~</del></h3>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>For my darling kittens</tag>
+      
+    </tags>
     
   </entry>
   
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2019/12/29/hello-world/"/>
-    <url>/2019/12/29/hello-world/</url>
+    <title>linux常用命令</title>
+    <link href="/2019/12/29/linux/"/>
+    <url>/2019/12/29/linux/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="文件文件夹相关命令"><a href="#文件文件夹相关命令" class="headerlink" title="文件文件夹相关命令"></a>文件文件夹相关命令</h2><ul><li>同一目录下文件或者目录不能重名</li><li>递归创建目录<code>mkdir -p  dir1/dir2/dir3</code></li><li>查看文件详细信息<code>ls -lh</code></li><li>删除文件夹命令<code>rm -r</code></li><li>强制删除忽略不存在的文件不提示<code>rm -f</code></li></ul><h2 id="放大缩小终端窗口"><a href="#放大缩小终端窗口" class="headerlink" title="放大缩小终端窗口"></a>放大缩小终端窗口</h2><ul><li>放大终端窗口 <code>ctrl shift =</code></li><li>缩小终端窗口 <code>ctrl  -</code></li></ul>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
     
   </entry>
   
