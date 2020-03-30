@@ -8,7 +8,7 @@
     <link href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/"/>
     <url>/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<h2 id="函数参数和实参个数不匹配的问题"><a href="#函数参数和实参个数不匹配的问题" class="headerlink" title="函数参数和实参个数不匹配的问题"></a>函数参数和实参个数不匹配的问题</h2><table><thead><tr><th>参数个数</th><th>说明</th></tr></thead><tbody><tr><td>实参个数等于形参个数</td><td>输出正确结果</td></tr><tr><td>实参个数多于形参个数</td><td>只取到形参个数</td></tr><tr><td>实参个数少于形参个数</td><td>多的形参定义为undefined，结果为NaN</td></tr></tbody></table><pre><code class="JavaScript">        function sum(sum1, sum2) {            console.log(sum1 + sum2);        }        sum(100, 200);//取到正确结果        sum(1000, 2000, 3000);//只取到形参个数        sum(10000);//实参个数少于形参多的定义为undefined，结果为NaN</code></pre><p><strong>注解：在JavaScript中，形参的默认值是undefined</strong></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="函数参数和实参个数不匹配的问题"><a href="#函数参数和实参个数不匹配的问题" class="headerlink" title="函数参数和实参个数不匹配的问题"></a>函数参数和实参个数不匹配的问题</h2><table><thead><tr><th>参数个数</th><th>说明</th></tr></thead><tbody><tr><td>实参个数等于形参个数</td><td>输出正确结果</td></tr><tr><td>实参个数多于形参个数</td><td>只取到形参个数</td></tr><tr><td>实参个数少于形参个数</td><td>多的形参定义为undefined，结果为NaN</td></tr></tbody></table><pre><code>        function sum(sum1, sum2) {            console.log(sum1 + sum2);        }        sum(100, 200);//取到正确结果        sum(1000, 2000, 3000);//只取到形参个数        sum(10000);//实参个数少于形参多的定义为undefined，结果为NaN</code></pre><p><strong>注解：在JavaScript中，形参的默认值是undefined</strong></p>]]></content>
     
     
     <categories>
