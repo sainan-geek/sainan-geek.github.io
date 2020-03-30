@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Archives ~ sainan&#39;s blog</title>
+  <title>JavaScript参数问题 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -37,7 +37,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -116,6 +116,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Monday, March 30th 2020, 8:51 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    139 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -126,74 +161,89 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="函数参数和实参个数不匹配的问题"><a href="#函数参数和实参个数不匹配的问题" class="headerlink" title="函数参数和实参个数不匹配的问题"></a>函数参数和实参个数不匹配的问题</h2><table>
+<thead>
+<tr>
+<th>参数个数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实参个数等于形参个数</td>
+<td>输出正确结果</td>
+</tr>
+<tr>
+<td>实参个数多于形参个数</td>
+<td>只取到形参个数</td>
+</tr>
+<tr>
+<td>实参个数少于形参个数</td>
+<td>多的形参定义为undefined，结果为NaN</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">sum1, sum2</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(sum1 + sum2);</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>);<span class="comment">//取到正确结果</span></span><br><span class="line">sum(<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">3000</span>);<span class="comment">//只取到形参个数</span></span><br><span class="line">sum(<span class="number">10000</span>);<span class="comment">//实参个数少于形参多的定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>
+<p><strong>注解：在JavaScript中，形参的默认值是undefined</strong></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<div class="list-group">
-  <p class="h4">7 posts in total.</p>
-  <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript参数问题</span>
-      <span style="float: right;">03-30</span>
-    </a>
-  
-    
-    <a href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">windows下的hexo转移到mac平台</span>
-      <span style="float: right;">03-29</span>
-    </a>
-  
-    
-    <a href="/2020/02/12/String%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">String类</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/12/ArrayList%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ArrayList类</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">成员变量和局部变量区别</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2020/02/04/java/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">java内存的划分</span>
-      <span style="float: right;">02-04</span>
-    </a>
-  
-    
-      
-      <p class="h5">2019</p>
-    
-    <a href="/2019/12/29/linux/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">linux常用命令</span>
-      <span style="float: right;">12-29</span>
-    </a>
-  
-</div>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -272,6 +322,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -304,7 +359,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "JavaScript参数问题&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
