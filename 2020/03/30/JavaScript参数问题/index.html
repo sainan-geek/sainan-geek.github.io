@@ -27,6 +27,8 @@
 
 
 
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
 <link rel="stylesheet" href="/css/main.css"  >
 
 
@@ -129,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    139 字
+                    137 字
                   </span>&nbsp;
                 
 
@@ -190,7 +192,12 @@
 <td>多的形参定义为undefined，结果为NaN</td>
 </tr>
 </tbody></table>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">sum1, sum2</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(sum1 + sum2);</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>);<span class="comment">//取到正确结果</span></span><br><span class="line">sum(<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">3000</span>);<span class="comment">//只取到形参个数</span></span><br><span class="line">sum(<span class="number">10000</span>);<span class="comment">//实参个数少于形参多的定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>
+<pre><code class="JavaScript">        function sum(sum1, sum2) {
+            console.log(sum1 + sum2);
+        }
+        sum(100, 200);//取到正确结果
+        sum(1000, 2000, 3000);//只取到形参个数
+        sum(10000);//实参个数少于形参多的定义为undefined，结果为NaN</code></pre>
 <p><strong>注解：在JavaScript中，形参的默认值是undefined</strong></p>
 
             <hr>
@@ -351,6 +358,14 @@
   
 
 
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 

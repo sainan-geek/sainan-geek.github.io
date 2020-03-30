@@ -27,6 +27,8 @@
 
 
 
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
 <link rel="stylesheet" href="/css/main.css"  >
 
 
@@ -129,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    243 字
+                    241 字
                   </span>&nbsp;
                 
 
@@ -171,7 +173,13 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h1 id="成员变量和局部变量区别"><a href="#成员变量和局部变量区别" class="headerlink" title="成员变量和局部变量区别"></a>成员变量和局部变量区别</h1><p>1.变量根据定义位置的不同，我们给变量起了不同名字。如下图所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    String color; <span class="comment">//成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> speed = <span class="number">80</span>; <span class="comment">//局部变量</span></span><br><span class="line">        System.out.println(<span class="string">"时速："</span>+ speed);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Car{
+    String color; //成员变量
+    public void drive(){
+        int speed = 80; //局部变量
+        System.out.println(&quot;时速：&quot;+ speed);
+    }
+}</code></pre>
 <ul>
 <li>在类中的位置不同<code>重点</code><ul>
 <li>成员变量：类中，方法外</li>
@@ -358,6 +366,14 @@
   
 
 
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 

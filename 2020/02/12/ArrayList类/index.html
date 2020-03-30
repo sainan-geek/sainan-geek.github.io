@@ -27,6 +27,8 @@
 
 
 
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
 <link rel="stylesheet" href="/css/main.css"  >
 
 
@@ -129,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    896 字
+                    865 字
                   </span>&nbsp;
                 
 
@@ -175,15 +177,70 @@
 <li>泛型：也就是装在集合中所有元素同一的类型。</li>
 <li>注意：泛型只能是引用类型不能是标准类型。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       &#x2F;&#x2F;创建了一个ArrayList，集合</span><br><span class="line">       &#x2F;&#x2F;从JDK1.7+ 开始右侧尖括号内部可以不写内容但尖括号仍然要写</span><br><span class="line">       ArrayList&lt;String&gt; list&#x3D;new ArrayList&lt;&gt;();</span><br><span class="line">       System.out.println(list);</span><br><span class="line">       &#x2F;&#x2F;对于ArrayList来说直接打印的不是地址值而是内容</span><br><span class="line">       &#x2F;&#x2F;如果内容为空得到的是空的中括号[]</span><br><span class="line"></span><br><span class="line">       &#x2F;&#x2F;向集合中添加数据</span><br><span class="line">       list.add(&quot;孙悟空&quot;);</span><br><span class="line">       list.add(&quot;猪八戒&quot;);</span><br><span class="line">       list.add(&quot;唐僧&quot;);</span><br><span class="line">       list.add(&quot;沙僧&quot;);</span><br><span class="line">       System.out.println(list);</span><br><span class="line">       &#x2F;&#x2F;不能写list.add(100);因为是String</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<hr>
+<pre><code> public static void main(String[] args) {
+        //创建了一个ArrayList，集合
+        //从JDK1.7+ 开始右侧尖括号内部可以不写内容但尖括号仍然要写
+        ArrayList&lt;String&gt; list=new ArrayList&lt;&gt;();
+        System.out.println(list);
+        //对于ArrayList来说直接打印的不是地址值而是内容
+        //如果内容为空得到的是空的中括号[]
+
+        //向集合中添加数据
+        list.add(&quot;孙悟空&quot;);
+        list.add(&quot;猪八戒&quot;);
+        list.add(&quot;唐僧&quot;);
+        list.add(&quot;沙僧&quot;);
+        System.out.println(list);
+        //不能写list.add(100);因为是String
+    }</code></pre><hr>
 <h3 id="常用ArrayList方法"><a href="#常用ArrayList方法" class="headerlink" title="常用ArrayList方法"></a>常用ArrayList方法</h3><ul>
 <li>public boolean add(E e):向集合中添加元素,参数类型和泛型类型相同，返回值代表是否添加成功</li>
 <li>备注：对于ArrayList来说,add动作一定是成功的返回值可用可不用,对于其他集合来说,添加不一定成功</li>
 <li>public E get(int index):向集合中获取元素,参数是索引编号,返回值就是对应位置的元素</li>
 <li>public E remove(int index):向集合中删除元素,参数是索引编号,返回值就是对应删除的元素</li>
-<li>public int size():获取集合的尺寸长度,返回值是集合中包含元素 个数<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* ArrayList常用的方法有</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* public boolean add(E e):向集合中添加元素,参数类型和泛型类型相同，返回值代表是否添加成功</span></span><br><span class="line"><span class="comment">* 备注：对于ArrayList来说,add动作一定是成功的返回值可用可不用,对于其他集合来说,添加不一定成功</span></span><br><span class="line"><span class="comment">* public E get(int index):向集合中获取元素,参数是索引编号,返回值就是对应位置的元素</span></span><br><span class="line"><span class="comment">* public E remove(int index):向集合中删除元素,参数是索引编号,返回值就是对应删除的元素</span></span><br><span class="line"><span class="comment">* public int size():获取集合的尺寸长度,返回值是集合中包含元素个数</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03ArrayListMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//从集合中添加元素</span></span><br><span class="line">        list.add(<span class="string">"一"</span>);</span><br><span class="line">        list.add(<span class="string">"二"</span>);</span><br><span class="line">        list.add(<span class="string">"三"</span>);</span><br><span class="line">        list.add(<span class="string">"四"</span>);</span><br><span class="line">        list.add(<span class="string">"五"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> success = list.add(<span class="string">"六"</span>);</span><br><span class="line">        System.out.println(<span class="string">"是否成功"</span>+success);</span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从集合中获取元素</span></span><br><span class="line">        String hah= list.get(<span class="number">3</span>);</span><br><span class="line">        System.out.println(<span class="string">"3处的元素是"</span>+ hah);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从集合中删除元素</span></span><br><span class="line">        String WhoRemoved=list.remove(<span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">"4处的元素"</span>+WhoRemoved+<span class="string">"已经删除，目前还有的元素： "</span>+list);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取集合的长度</span></span><br><span class="line">        System.out.println(<span class="string">"集合的长度为"</span>+list.size());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>public int size():获取集合的尺寸长度,返回值是集合中包含元素 个数<pre><code class="Java"></code></pre>
 </li>
+</ul>
+<p>/*</p>
+<ul>
+<li><p>ArrayList常用的方法有</p>
+</li>
+<li></li>
+<li><p>public boolean add(E e):向集合中添加元素,参数类型和泛型类型相同，返回值代表是否添加成功</p>
+</li>
+<li><p>备注：对于ArrayList来说,add动作一定是成功的返回值可用可不用,对于其他集合来说,添加不一定成功</p>
+</li>
+<li><p>public E get(int index):向集合中获取元素,参数是索引编号,返回值就是对应位置的元素</p>
+</li>
+<li><p>public E remove(int index):向集合中删除元素,参数是索引编号,返回值就是对应删除的元素</p>
+</li>
+<li><p>public int size():获取集合的尺寸长度,返回值是集合中包含元素个数</p>
+</li>
+<li></li>
+<li></li>
+<li><p>*/<br>public class Demo03ArrayListMethod {<br>  public static void main(String[] args) {</p>
+<pre><code>  ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+  //从集合中添加元素
+  list.add(&quot;一&quot;);
+  list.add(&quot;二&quot;);
+  list.add(&quot;三&quot;);
+  list.add(&quot;四&quot;);
+  list.add(&quot;五&quot;);
+  boolean success = list.add(&quot;六&quot;);
+  System.out.println(&quot;是否成功&quot;+success);
+  System.out.println(list);
+
+  //从集合中获取元素
+  String hah= list.get(3);
+  System.out.println(&quot;3处的元素是&quot;+ hah);
+
+  //从集合中删除元素
+  String WhoRemoved=list.remove(4);
+  System.out.println(&quot;4处的元素&quot;+WhoRemoved+&quot;已经删除，目前还有的元素： &quot;+list);
+
+  //获取集合的长度
+  System.out.println(&quot;集合的长度为&quot;+list.size());</code></pre><p>  }<br>}</p>
+<pre><code></code></pre></li>
 </ul>
 <hr>
 <h3 id="泛型只能是引用类型，不能是基本类型"><a href="#泛型只能是引用类型，不能是基本类型" class="headerlink" title="泛型只能是引用类型，不能是基本类型"></a>泛型只能是引用类型，不能是基本类型</h3><ul>
@@ -195,8 +252,24 @@
 <li>自动装箱：基本类型—-&gt;&gt;引用类型</li>
 <li>自动拆箱：引用类型—-&gt;&gt;基本类型</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Demo05ArrayListBasic &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        &#x2F;&#x2F;错误写法泛型只能是引用类型，不能是基本类型</span><br><span class="line">&#x2F;&#x2F;        ArrayList&lt;int&gt; list &#x3D; new ArrayList&lt;int&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; list &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        list.add(1);</span><br><span class="line">        list.add(2);</span><br><span class="line">        list.add(3);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">        for (int i &#x3D; 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
+<pre><code>import java.util.ArrayList;
+
+public class Demo05ArrayListBasic {
+    public static void main(String[] args) {
+        //错误写法泛型只能是引用类型，不能是基本类型
+//        ArrayList&lt;int&gt; list = new ArrayList&lt;int&gt;();
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println(list);
+        System.out.println(&quot;====================&quot;);
+        for (int i = 0; i &lt; list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+}
+</code></pre><hr>
 
             <hr>
           </div>
@@ -356,6 +429,14 @@
   
 
 
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 

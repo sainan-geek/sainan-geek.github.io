@@ -27,6 +27,8 @@
 
 
 
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
 <link rel="stylesheet" href="/css/main.css"  >
 
 
@@ -129,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    450 字
+                    455 字
                   </span>&nbsp;
                 
 
@@ -189,7 +191,28 @@
 <ul>
 <li>一种直接创建:<code>String str =&quot;&quot;;//右边直接用双引号</code></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01String</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用空参构造</span></span><br><span class="line">        String str1 = <span class="keyword">new</span> String();</span><br><span class="line">        System.out.println(<span class="string">"第一个字符串: "</span>+str1);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据字符数组创建字符串</span></span><br><span class="line">        <span class="keyword">char</span>[] charArray = &#123;<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>&#125;;</span><br><span class="line">        String str2 = <span class="keyword">new</span> String(charArray);</span><br><span class="line">        System.out.println(<span class="string">"第二个字符串: "</span>+ str2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据字节数组创建字符串</span></span><br><span class="line">        <span class="keyword">byte</span>[] byteArray = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>&#125;;</span><br><span class="line">        String str3 = <span class="keyword">new</span> String(byteArray);</span><br><span class="line">        System.out.println(<span class="string">"第三个字符串: "</span>+ str3);</span><br><span class="line">        <span class="comment">//直接创建</span></span><br><span class="line">        String str4 =<span class="string">"第四个字符串: 一二三"</span>;</span><br><span class="line">        <span class="comment">//直接写上双引号就是字符串对象</span></span><br><span class="line">        System.out.println(str4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="Java">
+public class Demo01String {
+  public static void main(String[] args) {
+      //使用空参构造
+      String str1 = new String();
+      System.out.println(&quot;第一个字符串: &quot;+str1);
+
+      //根据字符数组创建字符串
+      char[] charArray = {&#39;A&#39;,&#39;B&#39;,&#39;C&#39;};
+      String str2 = new String(charArray);
+      System.out.println(&quot;第二个字符串: &quot;+ str2);
+
+      //根据字节数组创建字符串
+      byte[] byteArray = {97,98,99};
+      String str3 = new String(byteArray);
+      System.out.println(&quot;第三个字符串: &quot;+ str3);
+      //直接创建
+      String str4 =&quot;第四个字符串: 一二三&quot;;
+      //直接写上双引号就是字符串对象
+      System.out.println(str4);
+  }
+}</code></pre>
 </li>
 </ul>
 <hr>
@@ -359,6 +382,14 @@
   
 
 
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 
