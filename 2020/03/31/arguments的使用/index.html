@@ -173,34 +173,52 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们不确定有多少个参数传递的时候，可以用arguments来获取，在JavaScript中，arguments实际上是当前函数内置的一个对象。所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有实参。</p>
-<h2 id="代码举例"><a href="#代码举例" class="headerlink" title="代码举例"></a>代码举例</h2><p>```<br>      function getMax() {<br>            var max = arguments[0];<br>            for (let i = 0; i &lt; arguments.length; i++) {<br>                if (arguments[i] &gt; max) {<br>                    max = arguments[i];<br>                }<br>            }<br>            return max;<br>        }<br>        var m = getMax(1, 43, 23, 65, 23, 654);<br>        var n = getMax(2, 56, 89, 63, 354);<br>        console.log(m);<br>        console.log(n);</p>
-<p>  //return不能返回多个数，如果要返回多个数，返回的结果是最后一个值<br>        function fn(sum1, sum2) {<br>            return sum1, sum2;<br>        }<br>        var re = fn(1, 2);<br>        console.log(re);</p>
-<pre><code>    //要返回多个结果可以返回数组
-    function getre(sum1, sum2) {
-        return [sum1 + sum2, sum1 - sum2, sum1 * sum2, sum1 / sum2];
-    }
-    var re = getre(9, 3);
-    console.log(re);
+<h2 id="代码举例"><a href="#代码举例" class="headerlink" title="代码举例"></a>代码举例</h2><pre><code> function getMax() {
+            var max = arguments[0];
+            for (let i = 0; i &lt; arguments.length; i++) {
+                if (arguments[i] &gt; max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var m = getMax(1, 43, 23, 65, 23, 654);
+        var n = getMax(2, 56, 89, 63, 354);
+        console.log(m);
+        console.log(n);
+         //return不能返回多个数，如果要返回多个数，返回的结果是最后一个值
+        function fn(sum1, sum2) {
+            return sum1, sum2;
+        }
+        var re = fn(1, 2);
+        console.log(re);
 
-    //如果没有return那么返回的是undefine
-    function fun1() {
+        //要返回多个结果可以返回数组
+        function getre(sum1, sum2) {
+            return [sum1 + sum2, sum1 - sum2, sum1 * sum2, sum1 / sum2];
+        }
+        var re = getre(9, 3);
+        console.log(re);
 
-    }
-    console.log(fun1());
-    /*
-    break:结束当前循环体（如for，while）
-    continue:跳出本次循环执行下次循环
-    return:不仅可以退出循环，还能够返回return语句中的值，同时还可以结束当前函数体内的代码。
-    */
-    function fn() {
-        console.log(arguments);
-    }
-    fn(1, 2, 4, 5);
-    //伪数组
-    //1.具有数组的length属性
-    //2.按照索引的方式进行存储
-    //3.他没有真正数组的方法
-```</code></pre>
+        //如果没有return那么返回的是undefine
+        function fun1() {
+
+        }
+        console.log(fun1());
+        /*
+        break:结束当前循环体（如for，while）
+        continue:跳出本次循环执行下次循环
+        return:不仅可以退出循环，还能够返回return语句中的值，同时还可以结束当前函数体内的代码。
+        */
+        function fn() {
+            console.log(arguments);
+        }
+        fn(1, 2, 4, 5);
+        //伪数组
+        //1.具有数组的length属性
+        //2.按照索引的方式进行存储
+        //3.他没有真正数组的方法
+</code></pre>
             <hr>
           </div>
           <br>

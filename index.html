@@ -159,7 +159,18 @@
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">前言当我们不确定有多少个参数传递的时候，可以用arguments来获取，在JavaScript中，arguments实际上是当前函数内置的一个对象。所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有实参。
-代码举例```      function getMax() {            var max = arguments[0];            for (let i = 0; i &lt; arguments.length; i++) {                if (arguments[i] &gt; max) {                    max = arguments[i];                }            }            return max;        }        var m = getMax(1, 43, 23, 65, 23, 654);        var n = getMax(2, 56, 89, 63, 354);        console.log</div>
+代码举例 function getMax() {
+            var max = arguments[0];
+            for (let i = 0; i &lt; arguments.length; i++) {
+                if (arguments[i] &gt; max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var m = getMax(1, 43, 23, 65, 23, 654);
+        var n = getMax(2, 56, 89, 63, 354);
+        console.</div>
         </div>
       </a>
 
