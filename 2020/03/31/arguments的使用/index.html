@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Archives ~ sainan&#39;s blog</title>
+  <title>arguments的使用 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -118,6 +118,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Tuesday, March 31st 2020, 8:30 am
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    321 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -128,47 +163,104 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">8 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">arguments的使用</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript参数问题</span>
-      <span style="float: right;">03-30</span>
-    </a>
-  
-    
-    <a href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">windows下的hexo转移到mac平台</span>
-      <span style="float: right;">03-29</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们不确定有多少个参数传递的时候，可以用arguments来获取，在JavaScript中，arguments实际上是当前函数内置的一个对象。所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有实参。</p>
+<h2 id="代码举例"><a href="#代码举例" class="headerlink" title="代码举例"></a>代码举例</h2><p>```<br>      function getMax() {<br>            var max = arguments[0];<br>            for (let i = 0; i &lt; arguments.length; i++) {<br>                if (arguments[i] &gt; max) {<br>                    max = arguments[i];<br>                }<br>            }<br>            return max;<br>        }<br>        var m = getMax(1, 43, 23, 65, 23, 654);<br>        var n = getMax(2, 56, 89, 63, 354);<br>        console.log(m);<br>        console.log(n);</p>
+<p>  //return不能返回多个数，如果要返回多个数，返回的结果是最后一个值<br>        function fn(sum1, sum2) {<br>            return sum1, sum2;<br>        }<br>        var re = fn(1, 2);<br>        console.log(re);</p>
+<pre><code>    //要返回多个结果可以返回数组
+    function getre(sum1, sum2) {
+        return [sum1 + sum2, sum1 - sum2, sum1 * sum2, sum1 / sum2];
+    }
+    var re = getre(9, 3);
+    console.log(re);
 
-              </div>
-            </div>
+    //如果没有return那么返回的是undefine
+    function fun1() {
+
+    }
+    console.log(fun1());
+    /*
+    break:结束当前循环体（如for，while）
+    continue:跳出本次循环执行下次循环
+    return:不仅可以退出循环，还能够返回return语句中的值，同时还可以结束当前函数体内的代码。
+    */
+    function fn() {
+        console.log(arguments);
+    }
+    fn(1, 2, 4, 5);
+    //伪数组
+    //1.具有数组的length属性
+    //2.按照索引的方式进行存储
+    //3.他没有真正数组的方法
+```</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -247,6 +339,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -287,7 +384,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "arguments的使用&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
