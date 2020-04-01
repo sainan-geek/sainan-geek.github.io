@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>macos下hexo博客命令行git提交需要输入ssh的密码问题</title>
+    <link href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <url>/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>把博客转移到macos上后发现每次提交都要输入ssh的密码，解决这个问题</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><em>重新生成一个公钥，然后在提示输入密码时，直接回车即可，然后重新添加公钥到GitHub中</em><br>我的解决方法是先执行：<br><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code><br>在出现如下提示时，<strong>直接回车</strong>就行<br><img src="/img/2020-04-01-01.png" srcset="/img/loading.gif" alt=""><br>再执行：<br><code>pbcopy &lt; ~/.ssh/id_rsa.pub</code><br>这时候剪切板里就有了文字，直接到GitHub粘贴就行<br><strong>以下文字均为原博客引用</strong>：</p><ul><li>在linux中使用git，去提交或者下载代码都是很方便的，但是最近新配置了一套系统，发现每次git pull或者其他动作都需要输入密码。</li><li>想一想不对劲啊，我使用的是ssh的方式clone的代码，而且在clone之前还生成并且上传了公钥，还把公钥填入git的公钥库里面了，怎么还要我输入密码？？</li><li>仔细研究后，发现了问题所在，原来是在生产公钥的时候，执行命令 ssh-keygen -t rsa -C xxxx 后，会有一个输入密码(Enter passphrase (empty for no passphrase)) 与再次确认密码(Enter same passphrase again)的动作</li><li>问题就出在这儿因为这个时候如果你输入了密码 ,那你就悲剧了，以后每次git操作都必须输入密码，但是如果这个时候你直接回车，那你就一劳勇逸了</li></ul><p><strong>深坑啊深坑啊，一般来说提示输入密码，第一直觉当然是输入啊，真是深坑。希望大家能扩散，减少这种坑的出现，少浪费生命</strong></p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/niepeishen/p/5710575.html" target="_blank" rel="noopener">https://www.cnblogs.com/niepeishen/p/5710575.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript中||{}的意思</title>
     <link href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/"/>
     <url>/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/</url>
     
-    <content type="html"><![CDATA[<h2 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天看到一段JavaScript代码不知道是什么意思,代码如下:</p><pre><code>var NETWORK = NETWORK || {};</code></pre><h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>先看这个||符号，在js里面,||运算符，有个很有意思的用处：</p><ul><li>比如（A||B）系统先判断A表达式的布尔值，是真是假。如果为A是真，直接返回A。如果A为假，直接返回B（不会判断B是什么类型）。</li><li>所以，var NETWORK = NETWORK || {};这样写的意思是，先判断NETWORK的值是否为真（也就是判断NETWORK本身是否存在），如果存在，则返回NETWORK。如果NETWORK不存在，则返回后面的{}。最后再将值返回给NETWORK。</li><li>这样写，虽然看着比较复杂点，但是效率高，特别是判断一些变量，属性或者是传参是否存在，如果存在就直接用，不存在，就赋予一个空变量。相当于下面的简写： </li></ul><pre><code>if（NETWORK){       var NETWORK=NETWORK;           }  else{     var NETWORK={}    //将一个空对象传给a      }</code></pre><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.zhihu.com/question/22914542" target="_blank" rel="noopener">知乎问题参考</a></p>]]></content>
     
     
     <categories>

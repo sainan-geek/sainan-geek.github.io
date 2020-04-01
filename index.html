@@ -145,8 +145,49 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="/img/2020-04-01.png" srcset="/img/loading.gif" alt="macos下hexo博客命令行git提交需要输入ssh的密码问题" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">macos下hexo博客命令行git提交需要输入ssh的密码问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">前言把博客转移到macos上后发现每次提交都要输入ssh的密码，解决这个问题
+解决办法重新生成一个公钥，然后在提示输入密码时，直接回车即可，然后重新添加公钥到GitHub中我的解决方法是先执行：ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;在出现如下提示时，直接回车就行再执行：pbcopy &lt; ~/.ssh/id_rsa.pub这时候剪切板里就有了文字，直接到GitHub粘贴就行以下文字均为原博客引用：
+
+在linux中使用git，去提交或者下载代码都是很方便的，但是最近新配置了一套系统，发现每次git pull或者其他动作都需要输入密码。
+想一想不对劲啊，我使用的是ssh的方式clone的代码，而且在clone之前还生成并且上传了公钥，还把公钥填入git的公钥库里面了，怎么还要我输入密码？？
+仔细研究后，发现了问题所在，原来是在生产公钥的时候，执行命令 ssh-keygen -t rsa -C xxxx 后，会有一个输入密码(Enter passphrase (empty for no passph</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/" target="_self">
-          <img src="https://github.com/sainan-geek/hexo_picture/blob/master/img/nature-1.jpg" srcset="/img/loading.gif" alt="JavaScript中||{}的意思" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="JavaScript中||{}的意思" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
@@ -158,7 +199,20 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">测试图片</div>
+          <div class="index-text mb-1">前言今天看到一段JavaScript代码不知道是什么意思,代码如下:
+var NETWORK = NETWORK || {};解释先看这个||符号，在js里面,||运算符，有个很有意思的用处：
+
+比如（A||B）系统先判断A表达式的布尔值，是真是假。如果为A是真，直接返回A。如果A为假，直接返回B（不会判断B是什么类型）。
+所以，var NETWORK = NETWORK || {};这样写的意思是，先判断NETWORK的值是否为真（也就是判断NETWORK本身是否存在），如果存在，则返回NETWORK。如果NETWORK不存在，则返回后面的{}。最后再将值返回给NETWORK。
+这样写，虽然看着比较复杂点，但是效率高，特别是判断一些变量，属性或者是传参是否存在，如果存在就直接用，不存在，就赋予一个空变量。相当于下面的简写： 
+
+if（NETWORK){   
+    var NETWORK=NETWORK; 
+          }  
+else{ 
+    var NETWORK={}    //将一个空对象传给a  
+    }参考链接知乎问题参考
+</div>
         </div>
       </a>
 

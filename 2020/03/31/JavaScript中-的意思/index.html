@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    4 字
+                    256 字
                   </span>&nbsp;
                 
 
@@ -172,7 +172,20 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h2>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天看到一段JavaScript代码不知道是什么意思,代码如下:</p>
+<pre><code>var NETWORK = NETWORK || {};</code></pre><h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>先看这个||符号，在js里面,||运算符，有个很有意思的用处：</p>
+<ul>
+<li>比如（A||B）系统先判断A表达式的布尔值，是真是假。如果为A是真，直接返回A。如果A为假，直接返回B（不会判断B是什么类型）。</li>
+<li>所以，var NETWORK = NETWORK || {};这样写的意思是，先判断NETWORK的值是否为真（也就是判断NETWORK本身是否存在），如果存在，则返回NETWORK。如果NETWORK不存在，则返回后面的{}。最后再将值返回给NETWORK。</li>
+<li>这样写，虽然看着比较复杂点，但是效率高，特别是判断一些变量，属性或者是传参是否存在，如果存在就直接用，不存在，就赋予一个空变量。相当于下面的简写： </li>
+</ul>
+<pre><code>if（NETWORK){   
+    var NETWORK=NETWORK; 
+          }  
+else{ 
+    var NETWORK={}    //将一个空对象传给a  
+    }</code></pre><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.zhihu.com/question/22914542" target="_blank" rel="noopener">知乎问题参考</a></p>
+
             <hr>
           </div>
           <br>
