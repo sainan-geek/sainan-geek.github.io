@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Categories ~ sainan&#39;s blog</title>
+  <title>sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -121,6 +121,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -136,7 +140,116 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-tree-list-count">11</span></li></ul>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/02/04/java/" target="_self">
+          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="java内存的划分" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/04/java/">
+        <p class="h4 index-header">java内存的划分</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">java内存的划分
+栈(Stack）：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。局部变量：方法的参数或方法{}内部的变量。作用域：一旦超出作用域，立即从栈中消失。
+堆(heap)：凡是new出来的东西都在堆中。 堆内存里面的东西都有一个地址值：16进制。 堆内存里面的数据，都有默认值。规则： &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0 &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0 &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’ &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null
+方法区(Methode Area)：储存.class相关信息，包含方法的信息。
+本地方法栈(Native Area)：与操作系统相关。
+寄存器(pc Register)：与cpu相关。
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/java">java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/12/29/linux/" target="_self">
+          <img src="/img/linux.jpg" srcset="/img/loading.gif" alt="linux常用命令" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/29/linux/">
+        <p class="h4 index-header">linux常用命令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">文件文件夹相关命令
+同一目录下文件或者目录不能重名
+递归创建目录mkdir -p  dir1/dir2/dir3
+查看文件详细信息ls -lh
+删除文件夹命令rm -r
+强制删除忽略不存在的文件不提示rm -f
+
+放大缩小终端窗口
+放大终端窗口 ctrl shift =
+缩小终端窗口 ctrl  -
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-29&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/linux">linux</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
 
 
               </div>
@@ -262,7 +375,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Category&nbsp;",
+        "能被看见的努力都是肤浅的&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
