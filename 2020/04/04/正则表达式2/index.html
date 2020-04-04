@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>正则表达式 ~ sainan&#39;s blog</title>
+  <title>正则表达式2 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  Thursday, April 2nd 2020, 7:20 pm
+                  Saturday, April 4th 2020, 8:59 am
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    204 字
+                    346 字
                   </span>&nbsp;
                 
 
@@ -172,45 +172,83 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="正则表达式在js中的使用"><a href="#正则表达式在js中的使用" class="headerlink" title="正则表达式在js中的使用"></a>正则表达式在js中的使用</h1><h2 id="正则表达式的的创建"><a href="#正则表达式的的创建" class="headerlink" title="正则表达式的的创建"></a>正则表达式的的创建</h2><ol>
-<li><p>利用RegExp来创建正则表达式</p>
-<p><code>var regexp = new RegExp(/123/);</code></p>
+            <h2 id="正则表达式规则（续）"><a href="#正则表达式规则（续）" class="headerlink" title="正则表达式规则（续）"></a>正则表达式规则（续）</h2><h3 id="字符类-表示有一系列字符"><a href="#字符类-表示有一系列字符" class="headerlink" title="字符类:[ ]表示有一系列字符"></a>字符类:[ ]表示有一系列字符</h3><ol>
+<li><p>只要包含有a或者 包含有b 或者 包含有c 就为true</p>
+<p><code>var reg =/[abc]/;</code></p>
 </li>
-<li><p>利用字面变量创建正则表达式</p>
-<p><code>var rg = /123/;</code></p>
+<li><p>三选一：只有单独一个a，单独一个b或者单独一个c，才为真</p>
+<p><code>var reg = /^[abc]$/;</code></p>
+</li>
+<li><p>26个小写英文字符任何一个都返回true</p>
+<p><code>var reg = /^[a-z]$/</code></p>
 </li>
 </ol>
-<h2 id="正则表达式的测试"><a href="#正则表达式的测试" class="headerlink" title="正则表达式的测试"></a>正则表达式的测试</h2><p>regexObj.test(str);</p>
-<p>regexObj写的是正则表达式</p>
-<p>str是我们要测试的文本</p>
-<p> 就是检测我们str文本是否符合我们写的正则表达式规范</p>
-<p><code>console.log(rg.test(123)); //执行结果true</code></p>
-<h2 id="正则表达式特殊字符"><a href="#正则表达式特殊字符" class="headerlink" title="正则表达式特殊字符"></a>正则表达式特殊字符</h2><h3 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h3><table>
+<h3 id="字符组合"><a href="#字符组合" class="headerlink" title="字符组合"></a>字符组合</h3><ol>
+<li><p>26个英文字母大小写都可以，0-9任何一个数据都可以，-_也可以</p>
+<p><code>var reg =/^[a-zA-Z0-9]$/</code></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>如果中括号里边有^那就是取反，即不包含于</p>
+<p><code>var reg = /^[^a-zA-Z0-9]/</code></p>
+</li>
+</ol>
+<h3 id="量词符号"><a href="#量词符号" class="headerlink" title="量词符号"></a>量词符号</h3><table>
 <thead>
 <tr>
-<th>边界符</th>
+<th>量词</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>^</td>
-<td>表示匹配行首的文本（以谁开始）</td>
+<td>*</td>
+<td>重复零次或更多次</td>
 </tr>
 <tr>
-<td>$</td>
-<td>表示匹配行尾的文本（以谁结束）</td>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>？</td>
+<td>重复零次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
 </tr>
 </tbody></table>
-<p>常见正则表达式规则入门:</p>
-<p>只要包含就行</p>
-<p><code>var rg = /abc/;</code></p>
-<p>必须以abc开头</p>
-<p><code>var rg = /^abc/;</code></p>
-<p>必须以abc结尾</p>
-<p><code>var rg = /abc$/;</code></p>
-<p>必须是abc</p>
-<p><code>var rg = /^abc$/;</code></p>
-<p>​                </p>
+<p>具体使用</p>
+<ol>
+<li><p>a可以出现任意次</p>
+<p><code>var reg = /^a*$/;</code></p>
+</li>
+<li><p>a可以出现一次或者很多次<br> <code>var reg1 = /^a+$/;</code></p>
+</li>
+<li><p>a出现0次或者1次</p>
+<p><code>var reg1 = /^a?$/;</code></p>
+</li>
+<li><p>a出现3次</p>
+<p><code>var reg1 = /^a{3}$/;</code></p>
+</li>
+<li><p>a出现3次或者多次</p>
+<p><code>var reg1 = /^a{3,}$/;</code></p>
+</li>
+<li><p>a出现3次并且小于10次</p>
+<p><code>var reg1 = /^a{3,10}$/;</code></p>
+</li>
+</ol>
+<h3 id="量词设定某个模式出现的次数"><a href="#量词设定某个模式出现的次数" class="headerlink" title="量词设定某个模式出现的次数"></a>量词设定某个模式出现的次数</h3><ol>
+<li>这个模式用户只能输入英文字母，数字，下划线，短横线但是有边界符号和[]这就限定了只能多选1<code>{6, 16}</code>中间不要有空格</li>
+</ol>
+<p><code>var reg = /^[a-zA-Z0-9_-]{6,16}$/</code></p>
 
             <hr>
           </div>
@@ -402,7 +440,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "正则表达式&nbsp;",
+        "正则表达式2&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

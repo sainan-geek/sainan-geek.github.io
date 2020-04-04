@@ -145,6 +145,111 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F2/" target="_self">
+          <img src="/img/zhengze2.png" srcset="/img/loading.gif" alt="正则表达式2" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F2/">
+        <p class="h4 index-header">正则表达式2</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">正则表达式规则（续）字符类:[ ]表示有一系列字符
+只要包含有a或者 包含有b 或者 包含有c 就为true
+var reg =/[abc]/;
+
+三选一：只有单独一个a，单独一个b或者单独一个c，才为真
+var reg = /^[abc]$/;
+
+26个小写英文字符任何一个都返回true
+var reg = /^[a-z]$/
+
+
+字符组合
+26个英文字母大小写都可以，0-9任何一个数据都可以，-_也可以
+var reg =/^[a-zA-Z0-9]$/
+
+
+
+如果中括号里边有^那就是取反，即不包含于
+var reg = /^[^a-zA-Z0-9]/
+
+
+量词符号
+
+
+量词
+说明
+
+
+
+*
+重复零次或更多次
+
+
++
+重复一次或更多次
+
+
+？
+重复零次或一次
+
+
+{n}
+重复n次
+
+
+{n,}
+重复n次或更多次
+
+
+{n,m}
+重复n到m次
+
+
+具体使用
+
+a可以出现任意次
+var reg = /^a*$/;
+
+a可以出现一次或者很多次 var reg1 = /^a+$/;
+
+a出现0次或者1次
+var reg1 = /^a?$/;
+
+a出现3次
+var reg1 = /^a{3}$</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
           <img src="/img/zhengze.png" srcset="/img/loading.gif" alt="正则表达式" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -187,13 +292,17 @@ $
 表示匹配行尾的文本（以谁结束）
 
 
-用法:
- var rg = /abc/; //只要包含就行
-        console.log(rg.test(&#39;abcsds&#39;));
-        console.log(rg.test(&#39;xxxabcmmmabc&#39;));
-        console.log(&quot;================&quot;);
-
-        var rg = /^abc/</div>
+常见正则表达式规则入门:
+只要包含就行
+var rg = /abc/;
+必须以abc开头
+var rg = /^abc/;
+必须以abc结尾
+var rg = /abc$/;
+必须是abc
+var rg = /^abc$/;
+​                
+</div>
         </div>
       </a>
 
@@ -649,82 +758,6 @@ public class Demo01String {
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/java">java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="成员变量和局部变量区别" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/">
-        <p class="h4 index-header">成员变量和局部变量区别</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">成员变量和局部变量区别1.变量根据定义位置的不同，我们给变量起了不同名字。如下图所示：
-public class Car{
-    String color; //成员变量
-    public void drive(){
-        int speed = 80; //局部变量
-        System.out.println(&quot;时速：&quot;+ speed);
-    }
-}
-
-在类中的位置不同重点
-成员变量：类中，方法外
-局部变量：方法中或者方法声明上（形式参数）
-
-
-作用的范围不一样重点
-成员变量：类中
-局部变量：方法中
-
-
-初始化值不同重点
-成员变量：有默认值
-局部变量：没有默认值。必须先定义，赋值，最后使用
-
-
-内存中位置不同了解
-内存变量：堆内存
-局部变量：栈内存
-
-
-声明周期不同了解
-成员变量：随着对象的创建而存在，随着对象的消失而消失
-局部变量：随着方法的调用而存在，随着方法的消失而消失
-
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
