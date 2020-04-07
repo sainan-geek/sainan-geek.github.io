@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>git相关操作 ~ sainan&#39;s blog</title>
+  <title>git撤销删除相关的操作 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  Monday, April 6th 2020, 2:18 pm
+                  Tuesday, April 7th 2020, 9:48 am
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    381 字
+                    310 字
                   </span>&nbsp;
                 
 
@@ -172,52 +172,41 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <p>git官方中文文档网址：<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
-<h2 id="使用前配置"><a href="#使用前配置" class="headerlink" title="使用前配置"></a>使用前配置</h2><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
-<ol>
-<li><p>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></p>
-</li>
-<li><p>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </p>
-</li>
-<li><p>查看git配置信息：<code>git config --list</code>   </p>
+            <h2 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h2><p>虽然之前也接触过git但是从未深入使用，今天使用遇到了一个问题就是我删除了一个文件现在我又不想删除了怎么办</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ol>
+<li><p>首先我新建了一个分支并切换到这个分支（可以随意瞎搞）</p>
+<pre><code class="shell"> ohGit git:(master) git branch test-for-blog
+ ohGit git:(master) git checkout test-for-blog 
+Switched to branch &#39;test-for-blog&#39;</code></pre>
 </li>
 </ol>
-<h2 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h2><ol>
-<li><code>git init</code> 初始化git仓库</li>
-<li><code>git status</code> 查看文件状态</li>
-<li><code>git add 文件列表</code> 追踪文件</li>
-<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
-<li><code>git log</code> 查看提交记录</li>
+<ol start="2">
+<li><p>我新建一个文件test.txt，添加到暂存区，并查看状态</p>
+<pre><code class="shell"> ohGit git:(test-for-blog) touch test.txt
+ ohGit git:(test-for-blog) ✗ git add .
+ ohGit git:(test-for-blog) ✗ git status
+On branch test-for-blog
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    new file:   test.txt</code></pre>
+</li>
+<li><p>我将这个test.txt文件删除，然后再查看状态</p>
+<pre><code class="shell">ohGit git:(test-for-blog) ✗ rm test.txt 
+ohGit git:(test-for-blog) ✗ git status
+On branch test-for-blog
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    new file:   test.txt
+
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+    deleted:    test.txt</code></pre>
+</li>
+<li><p>我现在又想把刚才删除的文件恢复了(可以看到上边是有提示的，按照提示来就可以了)</p>
+<pre><code class="shell">ohGit git:(test-for-blog) ✗ git restore test.txt</code></pre>
+</li>
 </ol>
-<h2 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h2><ul>
-<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
-</li>
-<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
-</li>
-<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
-</li>
-</ul>
-<h2 id="分支相关命令"><a href="#分支相关命令" class="headerlink" title="分支相关命令"></a>分支相关命令</h2><ul>
-<li><p><code>git branch</code> 查看分支</p>
-</li>
-<li><p><code>git branch 分支名称</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名称</code> 切换分支</p>
-</li>
-<li><p><code>git merge 来源分支</code> 合并分支</p>
-</li>
-<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
-</li>
-</ul>
-<h2 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h2><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
-<p>使用场景：分支临时切换</p>
-<ul>
-<li>存储临时改动：<code>git stash</code></li>
-<li>恢复改动：<code>git stash pop</code></li>
-</ul>
-<h2 id="查看哪里发生了更改"><a href="#查看哪里发生了更改" class="headerlink" title="查看哪里发生了更改"></a>查看哪里发生了更改</h2><ul>
-<li>具体修改了什么地方： <code>git diff</code> </li>
-</ul>
 
             <hr>
           </div>
@@ -409,7 +398,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "git相关操作&nbsp;",
+        "git撤销删除相关的操作&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
