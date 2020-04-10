@@ -4,11 +4,36 @@
   
   
   <entry>
+    <title>节点导纳矩阵</title>
+    <link href="/2020/04/10/%E8%8A%82%E7%82%B9%E5%AF%BC%E7%BA%B3%E7%9F%A9%E9%98%B5/"/>
+    <url>/2020/04/10/%E8%8A%82%E7%82%B9%E5%AF%BC%E7%BA%B3%E7%9F%A9%E9%98%B5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>节点导纳矩阵既可根据自导纳和互导纳的定义直接求取，也可根据电路知识中找出改网络的关联矩阵，在节点电压方程的矩阵形式进行求解。这里阐述的是直接求解导纳矩阵。</p><h2 id="节点导纳矩阵"><a href="#节点导纳矩阵" class="headerlink" title="节点导纳矩阵"></a>节点导纳矩阵</h2><p><strong>什么是导纳</strong>：是一个复数 ，在电力电子学中导纳定义为阻抗(impedance)的倒数；</p><p><strong>什么是阻抗：</strong>也是一个复数，在具有电阻、电感和电容的电路里，对电路中的电流所起的阻碍作用叫做阻抗；</p><p><strong>什么是节点导纳矩阵</strong>：电力网的运行状态可用节点方程或回路方程来描述。节点导纳矩阵是以系统元件的等值导纳为基础所建立的、描述电力网络各节点电压和注入电流之间关系的线性方程</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200410090150.png" srcset="/img/loading.gif" alt=""></p><p>I<sub>bus</sub> :  输入节点电流向量（例如外部电流源），电流方向定义为流向节点方向为正流出节点方向为负</p><p>Y<sub>bus</sub>: 节点导纳矩阵,<code>对角元素</code>是与该节点有联系的<code>导纳之和</code>，称为自导纳（self-admittance），或驱动点导纳(drivingpoint admittance)<code>非对角元素</code>是两节点间<code>导纳的负值</code>，称为互导纳（mutual admittance），或转移导纳（transferadmittance）</p><p>V<sub>bus</sub>: 相对于参考节点的节点电压向量（例如节点电压）</p><h2 id="线性代数解法"><a href="#线性代数解法" class="headerlink" title="线性代数解法"></a>线性代数解法</h2><p>MATLAB 中形成节点导纳矩阵的两个函数ybus和lfbus</p><p>函数Y=ybus（zdata ）用来形成节点导纳矩阵，zdata 是线路数据输入变量，包括四</p><p>项，前两项是节点编号，后两项是线路电阻和电抗，均以标幺值表示，函数返回节点导纳矩</p><p>阵。</p><p>ybus如下：</p><pre><code class="matlab">%  Bus Admittance Matrix%  Copyright (c)  1998 by H. Saadat.function[Ybus] = ybus(zdata)nl=zdata(:,1); nr=zdata(:,2); R=zdata(:,3); X=zdata(:,4);nbr=length(zdata(:,1)); nbus = max(max(nl), max(nr));Z = R + j*X;                            %branch impedancey= ones(nbr,1)./Z;                     %branch admittanceYbus=zeros(nbus,nbus);          % initialize Ybus to zerofor k = 1:nbr;   % formation of the off diagonal elements    if nl(k) &gt; 0 &amp; nr(k) &gt; 0    Ybus(nl(k),nr(k)) = Ybus(nl(k),nr(k)) - y(k);    Ybus(nr(k),nl(k)) = Ybus(nl(k),nr(k));    endendfor n = 1:nbus       % formation of the diagonal elements    for k = 1:nbr    if nl(k) == n | nr(k) == n    Ybus(n,n) = Ybus(n,n) + y(k);    else, end    endend</code></pre><p>输入以下命令或者直接作为文件执行</p><pre><code class="matlab">%    From  To   R    Xz = [ 0    1    0   1.0      0    2    0   0.8      1    2    0   0.4      1    3    0   0.2      2    3    0   0.2      3    4    0   0.08]; [Ybus] = ybus(z)                         % bus admittance matrixIbus = [-j*1.1; -j*1.25; 0; 0]; % vector of injected bus currentsZbus = inv(Ybus)                           % bus impedance matrixVbus = Zbus*Ibus%Vbus = Ybus\Ibus</code></pre><p>执行结果</p><pre><code class="matlab">Ybus =   0.0000 - 8.5000i   0.0000 + 2.5000i   0.0000 + 5.0000i   0.0000 + 0.0000i   0.0000 + 2.5000i   0.0000 - 8.7500i   0.0000 + 5.0000i   0.0000 + 0.0000i   0.0000 + 5.0000i   0.0000 + 5.0000i   0.0000 -22.5000i   0.0000 +12.5000i   0.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 +12.5000i   0.0000 -12.5000iZbus =   0.0000 + 0.5000i   0.0000 + 0.4000i   0.0000 + 0.4500i   0.0000 + 0.4500i   0.0000 + 0.4000i   0.0000 + 0.4800i   0.0000 + 0.4400i   0.0000 + 0.4400i   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.5450i   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.6250iVbus =    1.0500    1.0400    1.0450    1.0450</code></pre><p>两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)，这些技术应用于求解功率潮流问题。三个程序 lfgauss、 lfnewton 、decouple 分别用高斯法、牛顿法和解耦的牛顿法，求解功率潮流方程。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>电力相关</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>潮流分析学习</title>
     <link href="/2020/04/09/%E6%BD%AE%E6%B5%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0/"/>
     <url>/2020/04/09/%E6%BD%AE%E6%B5%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0/</url>
     
-    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>潮流分析</strong>: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础</p><p><strong>潮流计算：</strong>潮流计算是根据给定的电网结构、参数和<a href="https://baike.baidu.com/item/发电机/995009" target="_blank" rel="noopener">发电机</a>、<a href="https://baike.baidu.com/item/负荷/11010944" target="_blank" rel="noopener">负荷</a>等元件的运行条件，确定电力系统各部分<a href="https://baike.baidu.com/item/稳态" target="_blank" rel="noopener">稳态</a>运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是<a href="https://baike.baidu.com/item/网损" target="_blank" rel="noopener">网损</a>计算、静态安全分析、<a href="https://baike.baidu.com/item/暂态稳定计算" target="_blank" rel="noopener">暂态稳定计算</a>、小干扰<a href="https://baike.baidu.com/item/静态稳定计算" target="_blank" rel="noopener">静态稳定计算</a>、短路计算、静态和动态等值计算的基础。</p><p><strong>潮流计算方法：</strong></p><ul><li><p>网络方程可以有多种形式，但是<code>节点电压方程</code>法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。</p></li><li><p>以<code>节点导纳矩阵</code>形成的网络方程是一个针对节点电流的线性、复数代数联立方程。</p></li><li><p>当节点电流已知时，用一组<code>线性代数方程</code>就可以解得电压，但在电力系统中给定的是功率而不是电流，导致出现了功率潮流方程(power flowequation)，这是一个非线性方程，需要迭代求解</p></li></ul><p><strong>从数学上说，潮流计算是求解<code>一组</code>由潮流方程描述的<code>非线性代数方程组</code>。</strong></p><p>有两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)</p><p>这里讲的是节点电压方程中节点导纳矩阵的形成，在MATLAB 中形成节点导纳矩阵的两个函数是ybus1 和lfbus， </p><p>三个程序 lfgauss、 lfnewton 、decouple 分别用高斯法、牛顿法和解耦的牛顿法，求解功率潮流方程。</p><p>程序在下一篇博客中写</p><p>参考链接：<a href="https://baike.baidu.com/item/%E6%BD%AE%E6%B5%81%E8%AE%A1%E7%AE%97" target="_blank" rel="noopener">潮流计算</a>，<a href="http://www.bookask.com/book/115536.html" target="_blank" rel="noopener">电力系统分析</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>潮流分析</strong>: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础</p><p><strong>潮流计算：</strong>潮流计算是根据给定的电网结构、参数和<a href="https://baike.baidu.com/item/发电机/995009" target="_blank" rel="noopener">发电机</a>、<a href="https://baike.baidu.com/item/负荷/11010944" target="_blank" rel="noopener">负荷</a>等元件的运行条件，确定电力系统各部分<a href="https://baike.baidu.com/item/稳态" target="_blank" rel="noopener">稳态</a>运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是<a href="https://baike.baidu.com/item/网损" target="_blank" rel="noopener">网损</a>计算、静态安全分析、<a href="https://baike.baidu.com/item/暂态稳定计算" target="_blank" rel="noopener">暂态稳定计算</a>、小干扰<a href="https://baike.baidu.com/item/静态稳定计算" target="_blank" rel="noopener">静态稳定计算</a>、短路计算、静态和动态等值计算的基础。</p><p><strong>潮流计算方法：</strong></p><ul><li><p>网络方程可以有多种形式，但是<code>节点电压方程</code>法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。</p></li><li><p>以<code>节点导纳矩阵</code>形成的网络方程是一个针对节点电流的线性、复数代数联立方程。</p></li><li><p>当节点电流已知时，用一组<code>线性代数方程</code>就可以解得电压，但在电力系统中给定的是功率而不是电流，导致出现了功率潮流方程(power flowequation)，这是一个非线性方程，需要迭代求解</p></li></ul><p><strong>从数学上说，潮流计算是求解<code>一组</code>由潮流方程描述的<code>非线性代数方程组</code>。</strong></p><p>有两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)</p><p>参考链接：<a href="https://baike.baidu.com/item/%E6%BD%AE%E6%B5%81%E8%AE%A1%E7%AE%97" target="_blank" rel="noopener">潮流计算</a>，<a href="http://www.bookask.com/book/115536.html" target="_blank" rel="noopener">电力系统分析</a></p>]]></content>
     
     
     <categories>
@@ -205,6 +230,31 @@
   
   <entry>
     <title>macos下hexo博客命令行git提交需要输入ssh的密码问题</title>
+    <link href="/2020/04/01/String%E7%B1%BB/"/>
+    <url>/2020/04/01/String%E7%B1%BB/</url>
+    
+    <content type="html"><![CDATA[<h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h1><ul><li>java.lang.String类代表字符串。</li><li>API当中说：Java 程序中的所有字符串字面值（如 “abc” ）都作为此类的实例实现。</li><li>其实就是说：程序当中所有所有的双引号字符串，都是String类的对象。（就算没有new也照样是）</li><li>字符串的特点：</li><li>1.字符串的内容永远不改变，所以字符串是可以共享使用的。</li><li>2.字符串效果上相当于是char[]字符数组,但是底层原理是byte[]字节数组。</li></ul><h3 id="字符串的构造方法以及创建字符串"><a href="#字符串的构造方法以及创建字符串" class="headerlink" title="字符串的构造方法以及创建字符串"></a>字符串的构造方法以及创建字符串</h3><ul><li><p>创建字符串的常见3+1种方式：</p><ul><li><p>三种构造方法：</p><p>构造方法|含义</p></li></ul><p>  -|-|<br>  public String()|创建一个空白字符串，不含有任何内容<br>  public String(char[] array)|根据字符数组的内容来创建对应的字符串<br>  public String(byte[] array)|根据字节数组的内容来创建对应的字符串</p><ul><li>一种直接创建:<code>String str =&quot;&quot;;//右边直接用双引号</code></li></ul><pre><code class="Java">public class Demo01String {  public static void main(String[] args) {      //使用空参构造      String str1 = new String();      System.out.println(&quot;第一个字符串: &quot;+str1);      //根据字符数组创建字符串      char[] charArray = {&#39;A&#39;,&#39;B&#39;,&#39;C&#39;};      String str2 = new String(charArray);      System.out.println(&quot;第二个字符串: &quot;+ str2);      //根据字节数组创建字符串      byte[] byteArray = {97,98,99};      String str3 = new String(byteArray);      System.out.println(&quot;第三个字符串: &quot;+ str3);      //直接创建      String str4 =&quot;第四个字符串: 一二三&quot;;      //直接写上双引号就是字符串对象      System.out.println(str4);  }}</code></pre></li></ul><hr><h3 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h3><ul><li>字符串常量池：程序当中直接写上双引号字符串，就在字符串常量池中<ul><li>对于基本类型，==是数值的比较。</li><li>对于引用类型来说 ==是地址值的比较。</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客相关</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>macos下hexo博客命令行git提交需要输入ssh的密码问题</title>
     <link href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/"/>
     <url>/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/</url>
     
@@ -217,6 +267,12 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>博客相关</tag>
+      
+    </tags>
     
   </entry>
   
@@ -262,6 +318,12 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -296,7 +358,7 @@
     <link href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/"/>
     <url>/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/</url>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>也没啥好说的，就是以前用windows折腾hexo博客，用的github+hexo然后换了MacBookPro想用它折腾博客。<br>本文大量抄袭以下链接内容，如有雷同，那就是必然。</p><blockquote><p><a href="https://www.jianshu.com/p/49c8168c7418" target="_blank" rel="noopener">https://www.jianshu.com/p/49c8168c7418</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a><br><a href="https://help.github.com/cn/github/authenticating-to-github/about-ssh" target="_blank" rel="noopener">https://help.github.com/cn/github/authenticating-to-github/about-ssh</a></p></blockquote><h2 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h2><p>你要折腾hexo，你肯定得把它装上是吧。先不说怎么装，先说装之前你的准备工作，也就是你电脑有啥才能装。</p><ul><li><a href="https://git-scm.com/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li><li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li><li>xcode（在appstore下载）</li></ul><p>我的建议是直接去官网下完之后装上。</p><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><ul><li>直接复制粘贴输入密码执行。<pre><code>sudo npm install -g hexo-cli</code></pre></li><li>安装以后，可以使用以下两种方式执行 Hexo：<ol><li><code>npx hexo &lt;command&gt;</code></li><li>将 Hexo 所在的目录下的 node_modules 添加到环境变量之中即可直接使用 <code>hexo &lt;command&gt;</code></li></ol></li></ul><pre><code>echo &#39;PATH=&quot;$PATH:./node_modules/.bin&quot;&#39; &gt;&gt; ~/.profile</code></pre><h2 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h2><p>把你windows的hexo文件夹拷贝过来，放到一个你可以找到的地方。然后用MacBookPro的终端进入到文件夹，执行你要执行的hexo命令。你会发现在你部署到github时出错。<br>解决的方法就是：</p><ol><li><p>检查现有 SSH 密钥（因为我是新机器，没把密钥添加进去，所以没有密钥）</p><ul><li><p>打开 Terminal（终端）。</p></li><li><p>输入 <code>ls -al ~/.ssh</code> 以查看是否存在现有 SSH 密钥</p><pre><code>  $ ls -al ~/.ssh  # 列出 .ssh 目录中的文件（如果有）</code></pre></li><li><p>检查目录列表以查看是否已经有 SSH 公钥。 默认情况下，公钥的文件名是以下之一：</p><ul><li>id_rsa.pub</li><li>id_ecdsa.pub</li><li>id_ed25519.pub</li></ul></li></ul><p> <strong>如果你像我一样没有的话，那么就生成一个吧</strong></p></li><li><p>生成新 SSH 密钥</p><ul><li>打开 Terminal（终端）。</li><li>粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; </code></pre></li><li>这将创建以所提供的电子邮件地址为标签的新 SSH 密钥。<pre><code>&gt; Generating public/private rsa key pair.</code></pre></li><li>提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。<pre><code>  &gt; Enter a file in which to save the key (/Users/you/.ssh/id_rsa):       [Press enter]</code></pre></li><li>在提示时输入安全密码。 更多信息请参阅“使用 SSH 密钥密码”。<pre><code>&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]&gt; Enter same passphrase again: [Type passphrase again]</code></pre></li></ul></li><li><p>将 SSH 密钥复制到剪贴板。<br><code>$ pbcopy &lt; ~/.ssh/id_rsa.pub</code></p></li><li><p>把它粘贴到你的github上添加key的位置。</p><h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>也没啥好说的，就是以前用windows折腾hexo博客，用的github+hexo然后换了MacBookPro想用它折腾博客。<br>本文大量抄袭以下链接内容，如有雷同，那就是必然。</p><blockquote><p><a href="https://www.jianshu.com/p/49c8168c7418" target="_blank" rel="noopener">https://www.jianshu.com/p/49c8168c7418</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a><br><a href="https://help.github.com/cn/github/authenticating-to-github/about-ssh" target="_blank" rel="noopener">https://help.github.com/cn/github/authenticating-to-github/about-ssh</a></p></blockquote><h2 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h2><p>你要折腾hexo，你肯定得把它装上是吧。先不说怎么装，先说装之前你的准备工作，也就是你电脑有啥才能装。</p><ul><li><a href="https://git-scm.com/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li><li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li><li>xcode（在appstore下载）</li></ul><p>我的建议是直接去官网下完之后装上。</p><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><ul><li>直接复制粘贴输入密码执行。<pre><code>sudo npm install -g hexo-cli</code></pre></li><li>安装以后，可以使用以下两种方式执行 Hexo：<ol><li><code>npx hexo &lt;command&gt;</code></li><li>将 Hexo 所在的目录下的 node_modules 添加到环境变量之中即可直接使用 <code>hexo &lt;command&gt;</code></li></ol></li></ul><pre><code>echo &#39;PATH=&quot;$PATH:./node_modules/.bin&quot;&#39; &gt;&gt; ~/.profile</code></pre><h2 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h2><p>把你windows的hexo文件夹拷贝过来，放到一个你可以找到的地方。然后用MacBookPro的终端进入到文件夹，执行你要执行的hexo命令。你会发现在你部署到github时出错。<br>解决的方法就是：</p><ol><li><p>检查现有 SSH 密钥（因为我是新机器，没把密钥添加进去，所以没有密钥）</p><ul><li><p>打开 Terminal（终端）。</p></li><li><p>输入 <code>ls -al ~/.ssh</code> 以查看是否存在现有 SSH 密钥</p><pre><code>  $ ls -al ~/.ssh  # 列出 .ssh 目录中的文件（如果有）</code></pre></li><li><p>检查目录列表以查看是否已经有 SSH 公钥。 默认情况下，公钥的文件名是以下之一：</p><ul><li>id_rsa.pub</li><li>id_ecdsa.pub</li><li>id_ed25519.pub</li></ul></li></ul></li></ol><pre><code>**如果你像我一样没有的话，那么就生成一个吧**</code></pre><ol start="2"><li>生成新 SSH 密钥<ul><li>打开 Terminal（终端）。</li><li>粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; </code></pre></li><li>这将创建以所提供的电子邮件地址为标签的新 SSH 密钥。<pre><code>&gt; Generating public/private rsa key pair.</code></pre></li><li>提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。<pre><code>  &gt; Enter a file in which to save the key (/Users/you/.ssh/id_rsa):       [Press enter]</code></pre></li><li>在提示时输入安全密码。 更多信息请参阅“使用 SSH 密钥密码”。<pre><code>&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]&gt; Enter same passphrase again: [Type passphrase again]</code></pre></li></ul></li><li>将 SSH 密钥复制到剪贴板。<br><code>$ pbcopy &lt; ~/.ssh/id_rsa.pub</code></li><li>把它粘贴到你的github上添加key的位置。<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2></li></ol>]]></content>
     
     
     <categories>
@@ -342,34 +404,9 @@
   
   
   <entry>
-    <title>String类</title>
-    <link href="/2020/02/12/String%E7%B1%BB/"/>
-    <url>/2020/02/12/String%E7%B1%BB/</url>
-    
-    <content type="html"><![CDATA[<h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h1><ul><li>java.lang.String类代表字符串。</li><li>API当中说：Java 程序中的所有字符串字面值（如 “abc” ）都作为此类的实例实现。</li><li>其实就是说：程序当中所有所有的双引号字符串，都是String类的对象。（就算没有new也照样是）</li><li>字符串的特点：</li><li>1.字符串的内容永远不改变，所以字符串是可以共享使用的。</li><li>2.字符串效果上相当于是char[]字符数组,但是底层原理是byte[]字节数组。</li></ul><h3 id="字符串的构造方法以及创建字符串"><a href="#字符串的构造方法以及创建字符串" class="headerlink" title="字符串的构造方法以及创建字符串"></a>字符串的构造方法以及创建字符串</h3><ul><li><p>创建字符串的常见3+1种方式：</p><ul><li><p>三种构造方法：</p><p>构造方法|含义</p></li></ul><p>  -|-|<br>  public String()|创建一个空白字符串，不含有任何内容<br>  public String(char[] array)|根据字符数组的内容来创建对应的字符串<br>  public String(byte[] array)|根据字节数组的内容来创建对应的字符串</p><ul><li>一种直接创建:<code>String str =&quot;&quot;;//右边直接用双引号</code></li></ul><pre><code class="Java">public class Demo01String {  public static void main(String[] args) {      //使用空参构造      String str1 = new String();      System.out.println(&quot;第一个字符串: &quot;+str1);      //根据字符数组创建字符串      char[] charArray = {&#39;A&#39;,&#39;B&#39;,&#39;C&#39;};      String str2 = new String(charArray);      System.out.println(&quot;第二个字符串: &quot;+ str2);      //根据字节数组创建字符串      byte[] byteArray = {97,98,99};      String str3 = new String(byteArray);      System.out.println(&quot;第三个字符串: &quot;+ str3);      //直接创建      String str4 =&quot;第四个字符串: 一二三&quot;;      //直接写上双引号就是字符串对象      System.out.println(str4);  }}</code></pre></li></ul><hr><h3 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h3><ul><li>字符串常量池：程序当中直接写上双引号字符串，就在字符串常量池中<ul><li>对于基本类型，==是数值的比较。</li><li>对于引用类型来说 ==是地址值的比较。</li></ul></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>技术学习</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>java</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>成员变量和局部变量区别</title>
-    <link href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/"/>
-    <url>/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/</url>
+    <link href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/"/>
+    <url>/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/</url>
     
     <content type="html"><![CDATA[<h1 id="成员变量和局部变量区别"><a href="#成员变量和局部变量区别" class="headerlink" title="成员变量和局部变量区别"></a>成员变量和局部变量区别</h1><p>1.变量根据定义位置的不同，我们给变量起了不同名字。如下图所示：</p><pre><code class="java">public class Car{    String color; //成员变量    public void drive(){        int speed = 80; //局部变量        System.out.println(&quot;时速：&quot;+ speed);    }}</code></pre><ul><li>在类中的位置不同<code>重点</code><ul><li>成员变量：类中，方法外</li><li>局部变量：方法中或者方法声明上（形式参数）</li></ul></li><li>作用的范围不一样<code>重点</code><ul><li>成员变量：类中</li><li>局部变量：方法中</li></ul></li><li>初始化值不同<code>重点</code><ul><li>成员变量：有默认值</li><li>局部变量：没有默认值。必须先定义，赋值，最后使用</li></ul></li><li>内存中位置不同<code>了解</code><ul><li>内存变量：堆内存</li><li>局部变量：栈内存</li></ul></li><li>声明周期不同<code>了解</code><ul><li>成员变量：随着对象的创建而存在，随着对象的消失而消失</li><li>局部变量：随着方法的调用而存在，随着方法的消失而消失</li></ul></li></ul>]]></content>
     
@@ -393,10 +430,10 @@
   
   <entry>
     <title>java内存的划分</title>
-    <link href="/2020/02/04/java/"/>
-    <url>/2020/02/04/java/</url>
+    <link href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/"/>
+    <url>/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/</url>
     
-    <content type="html"><![CDATA[<h1 id="java内存的划分"><a href="#java内存的划分" class="headerlink" title="java内存的划分"></a>java内存的划分</h1><ol><li><font color=red>栈(Stack）</font>：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。<br>局部变量：方法的参数或方法{}内部的变量。<br>作用域：一旦超出作用域，立即从栈中消失。</li><li><font color=red>堆(heap)</font>：凡是new出来的东西都在堆中。<br> 堆内存里面的东西都有一个地址值：16进制。<br> 堆内存里面的数据，都有默认值。规则：<br> &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0<br> &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0<br> &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’<br> &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false<br> &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null</li><li><font color=red>方法区(Methode Area)</font>：储存.class相关信息，包含方法的信息。</li><li>本地方法栈(Native Area)：与操作系统相关。</li><li>寄存器(pc Register)：与cpu相关。</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="java内存的划分"><a href="#java内存的划分" class="headerlink" title="java内存的划分"></a>java内存的划分</h1><ol><li><font color=red>栈(Stack）</font>：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。<br> 局部变量：方法的参数或方法{}内部的变量。<br> 作用域：一旦超出作用域，立即从栈中消失。</li><li><font color=red>堆(heap)</font>：凡是new出来的东西都在堆中。<br> 堆内存里面的东西都有一个地址值：16进制。<br> 堆内存里面的数据，都有默认值。规则：<br> &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0<br> &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0<br> &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’<br> &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false<br> &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null</li><li><font color=red>方法区(Methode Area)</font>：储存.class相关信息，包含方法的信息。</li><li>本地方法栈(Native Area)：与操作系统相关。</li><li>寄存器(pc Register)：与cpu相关。</li></ol>]]></content>
     
     
     <categories>

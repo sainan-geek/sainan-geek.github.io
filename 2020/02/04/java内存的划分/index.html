@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>成员变量和局部变量区别 ~ sainan&#39;s blog</title>
+  <title>java内存的划分 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/earth.jpeg')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200409173538.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -122,7 +122,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  Thursday, February 6th 2020, 3:37 pm
+                  Tuesday, February 4th 2020, 4:23 pm
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    241 字
+                    238 字
                   </span>&nbsp;
                 
 
@@ -172,41 +172,13 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="成员变量和局部变量区别"><a href="#成员变量和局部变量区别" class="headerlink" title="成员变量和局部变量区别"></a>成员变量和局部变量区别</h1><p>1.变量根据定义位置的不同，我们给变量起了不同名字。如下图所示：</p>
-<pre><code class="java">public class Car{
-    String color; //成员变量
-    public void drive(){
-        int speed = 80; //局部变量
-        System.out.println(&quot;时速：&quot;+ speed);
-    }
-}</code></pre>
-<ul>
-<li>在类中的位置不同<code>重点</code><ul>
-<li>成员变量：类中，方法外</li>
-<li>局部变量：方法中或者方法声明上（形式参数）</li>
-</ul>
-</li>
-<li>作用的范围不一样<code>重点</code><ul>
-<li>成员变量：类中</li>
-<li>局部变量：方法中</li>
-</ul>
-</li>
-<li>初始化值不同<code>重点</code><ul>
-<li>成员变量：有默认值</li>
-<li>局部变量：没有默认值。必须先定义，赋值，最后使用</li>
-</ul>
-</li>
-<li>内存中位置不同<code>了解</code><ul>
-<li>内存变量：堆内存</li>
-<li>局部变量：栈内存</li>
-</ul>
-</li>
-<li>声明周期不同<code>了解</code><ul>
-<li>成员变量：随着对象的创建而存在，随着对象的消失而消失</li>
-<li>局部变量：随着方法的调用而存在，随着方法的消失而消失</li>
-</ul>
-</li>
-</ul>
+            <h1 id="java内存的划分"><a href="#java内存的划分" class="headerlink" title="java内存的划分"></a>java内存的划分</h1><ol>
+<li><font color=red>栈(Stack）</font>：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。<br> 局部变量：方法的参数或方法{}内部的变量。<br> 作用域：一旦超出作用域，立即从栈中消失。</li>
+<li><font color=red>堆(heap)</font>：凡是new出来的东西都在堆中。<br> 堆内存里面的东西都有一个地址值：16进制。<br> 堆内存里面的数据，都有默认值。规则：<br> &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0<br> &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0<br> &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’<br> &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false<br> &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null</li>
+<li><font color=red>方法区(Methode Area)</font>：储存.class相关信息，包含方法的信息。</li>
+<li>本地方法栈(Native Area)：与操作系统相关。</li>
+<li>寄存器(pc Register)：与cpu相关。</li>
+</ol>
 
             <hr>
           </div>
@@ -398,7 +370,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "成员变量和局部变量区别&nbsp;",
+        "java内存的划分&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

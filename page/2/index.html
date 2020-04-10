@@ -145,8 +145,108 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409174540.png" srcset="/img/loading.gif" alt="macos下hexo博客命令行git提交需要输入ssh的密码问题" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/">
+        <p class="h4 index-header">macos下hexo博客命令行git提交需要输入ssh的密码问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">前言把博客转移到macos上后发现每次提交都要输入ssh的密码，解决这个问题
+解决办法重新生成一个公钥，然后在提示输入密码时，直接回车即可，然后重新添加公钥到GitHub中我的解决方法是先执行：ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;在出现如下提示时，直接回车就行再执行：pbcopy &lt; ~/.ssh/id_rsa.pub这时候剪切板里就有了文字，直接到GitHub粘贴就行以下文字均为原博客引用：
+
+在linux中使用git，去提交或者下载代码都是很方便的，但是最近新配置了一套系统，发现每次git pull或者其他动作都需要输入密码。
+想一想不对劲啊，我使用的是ssh的方式clone的代码，而且在clone之前还生成并且上传了公钥，还把公钥填入git的公钥库里面了，怎么还要我输入密码？？
+仔细研究后，发现了问题所在，原来是在生产公钥的时候，执行命令 ssh-keygen -t rsa -C xxxx 后，会有一个输入密码(Enter passphrase (empty for no passph</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3">博客相关</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173640.png" srcset="/img/loading.gif" alt="JavaScript中||{}的意思" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/">
+        <p class="h4 index-header">JavaScript中||{}的意思</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">前言今天看到一段JavaScript代码不知道是什么意思,代码如下:
+var NETWORK = NETWORK || {};解释先看这个||符号，在js里面,||运算符，有个很有意思的用处：
+
+比如（A||B）系统先判断A表达式的布尔值，是真是假。如果为A是真，直接返回A。如果A为假，直接返回B（不会判断B是什么类型）。
+所以，var NETWORK = NETWORK || {};这样写的意思是，先判断NETWORK的值是否为真（也就是判断NETWORK本身是否存在），如果存在，则返回NETWORK。如果NETWORK不存在，则返回后面的{}。最后再将值返回给NETWORK。
+这样写，虽然看着比较复杂点，但是效率高，特别是判断一些变量，属性或者是传参是否存在，如果存在就直接用，不存在，就赋予一个空变量。相当于下面的简写： 
+
+if（NETWORK){   
+    var NETWORK=NETWORK; 
+          }  
+else{ 
+    var NETWORK={}    //将一个空对象传给a  
+    }参考链接知乎问题参考
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-31&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="arguments的使用" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409172934.png" srcset="/img/loading.gif" alt="arguments的使用" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
@@ -185,6 +285,11 @@
           &nbsp;
         
         
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
       </div>
     </div>
   </div>
@@ -194,7 +299,7 @@
     
       <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="JavaScript参数问题" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173738.png" srcset="/img/loading.gif" alt="JavaScript参数问题" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
@@ -261,7 +366,7 @@
     
       <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/" target="_self">
-          <img src="/img/macos.jpg" srcset="/img/loading.gif" alt="windows下的hexo转移到mac平台" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173911.png" srcset="/img/loading.gif" alt="windows下的hexo转移到mac平台" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
@@ -317,7 +422,7 @@ npx hexo &lt;command&gt;
     
       <div class="col-12 col-md-4 m-auto">
         <a href="/2020/02/12/ArrayList%E7%B1%BB/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="ArrayList类" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173035.png" srcset="/img/loading.gif" alt="ArrayList类" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
@@ -374,75 +479,13 @@ npx hexo &lt;command&gt;
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/02/12/String%E7%B1%BB/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="String类" class="img-fluid rounded z-depth-3 index-thumbnails">
+        <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409175709.png" srcset="/img/loading.gif" alt="成员变量和局部变量区别" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/12/String%E7%B1%BB/">
-        <p class="h4 index-header">String类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">String类
-java.lang.String类代表字符串。
-API当中说：Java 程序中的所有字符串字面值（如 “abc” ）都作为此类的实例实现。
-其实就是说：程序当中所有所有的双引号字符串，都是String类的对象。（就算没有new也照样是）
-字符串的特点：
-1.字符串的内容永远不改变，所以字符串是可以共享使用的。
-2.字符串效果上相当于是char[]字符数组,但是底层原理是byte[]字节数组。
-
-字符串的构造方法以及创建字符串
-创建字符串的常见3+1种方式：
-
-三种构造方法：
-构造方法|含义
-
-
-  -|-|  public String()|创建一个空白字符串，不含有任何内容  public String(char[] array)|根据字符数组的内容来创建对应的字符串  public String(byte[] array)|根据字节数组的内容来创建对应的字符串
-
-一种直接创建:String str =&quot;&quot;;//右边直接用双引号
-
-
-public class Demo01String {
-  public static void main(Stri</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/java">java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="成员变量和局部变量区别" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/06/java%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/">
+      <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/">
         <p class="h4 index-header">成员变量和局部变量区别</p>
         
         
@@ -512,13 +555,13 @@ public class Car{
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/02/04/java/" target="_self">
-          <img src="/img/snow.jpg" srcset="/img/loading.gif" alt="java内存的划分" class="img-fluid rounded z-depth-3 index-thumbnails">
+        <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173538.png" srcset="/img/loading.gif" alt="java内存的划分" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/04/java/">
+      <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/">
         <p class="h4 index-header">java内存的划分</p>
         
         
@@ -526,7 +569,7 @@ public class Car{
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">java内存的划分
-栈(Stack）：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。局部变量：方法的参数或方法{}内部的变量。作用域：一旦超出作用域，立即从栈中消失。
+栈(Stack）：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。 局部变量：方法的参数或方法{}内部的变量。 作用域：一旦超出作用域，立即从栈中消失。
 堆(heap)：凡是new出来的东西都在堆中。 堆内存里面的东西都有一个地址值：16进制。 堆内存里面的数据，都有默认值。规则： &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0 &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0 &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’ &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null
 方法区(Methode Area)：储存.class相关信息，包含方法的信息。
 本地方法栈(Native Area)：与操作系统相关。
@@ -561,7 +604,7 @@ public class Car{
     
       <div class="col-12 col-md-4 m-auto">
         <a href="/2019/12/29/linux/" target="_self">
-          <img src="/img/linux.jpg" srcset="/img/loading.gif" alt="linux常用命令" class="img-fluid rounded z-depth-3 index-thumbnails">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409174016.png" srcset="/img/loading.gif" alt="linux常用命令" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
