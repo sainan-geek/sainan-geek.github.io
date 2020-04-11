@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Tags - JavaScript ~ sainan&#39;s blog</title>
+  <title>JavaScript子类继承父类方法并扩展 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/earth.jpeg')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200411161923.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -117,6 +117,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Saturday, April 11th 2020, 4:21 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    319 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -128,84 +163,154 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">9 posts in total.</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/04/11/JavaScript%E5%AD%90%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E6%96%B9%E6%B3%95%E5%B9%B6%E6%89%A9%E5%B1%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript子类继承父类方法并扩展</span>
-      <span style="float: right;">04-11</span>
-    </a>
-  
-    
-    <a href="/2020/04/08/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">javascript面向对象</span>
-      <span style="float: right;">04-08</span>
-    </a>
-  
-    
-    <a href="/2020/04/05/%E7%94%A8%E6%88%B7%E5%90%8D%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用户名表单验证</span>
-      <span style="float: right;">04-05</span>
-    </a>
-  
-    
-    <a href="/2020/04/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">正则表达式2</span>
-      <span style="float: right;">04-04</span>
-    </a>
-  
-    
-    <a href="/2020/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">正则表达式</span>
-      <span style="float: right;">04-02</span>
-    </a>
-  
-    
-    <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript闭包</span>
-      <span style="float: right;">04-01</span>
-    </a>
-  
-    
-    <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript中||{}的意思</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">arguments的使用</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript参数问题</span>
-      <span style="float: right;">03-30</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h3 id="子类继承父类加法同时扩展减法"><a href="#子类继承父类加法同时扩展减法" class="headerlink" title="子类继承父类加法同时扩展减法"></a>子类继承父类加法同时扩展减法</h3><pre><code class="javascript">class Father {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+                      //定义加法
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+        //子类继承父类加法同时扩展减法
+        class Son extends Father {
+            constructor(x, y) {
+          //利用super调用父类的构造函数
+          //super必须在子类this调用之前
+                super(x, y);
+                this.x = x;
+                this.y = y;
+            }
+          //定义减法
+            sub() {
+                console.log(this.x - this.y);
+            }
+        }
+                //生成对象
+        var son = new Son(10, 2);
+                //调用方法
+        son.sub();
+        son.sum();</code></pre>
+<h3 id="使用类的时候要注意的问题"><a href="#使用类的时候要注意的问题" class="headerlink" title="使用类的时候要注意的问题"></a>使用类的时候要注意的问题</h3><ol>
+<li><p>在ES6中类没有变量提升，所以必须先定义类.</p>
+</li>
+<li><p>类里的共有属性和方法一定要加this使用.</p>
+</li>
+<li><p>类中this的指向问题：</p>
+<ul>
+<li><p>construct里面this的指向实例对象</p>
+</li>
+<li><p>方法里面的this指向这个方法的调用者 </p>
+<pre><code class="JavaScript">   var that, _that;//that接收创建的对象,_that为了检查dance里接收到的对象是否相同
+   class Star {
+       constructor(uname, uage) {
+           //construct里的this指向的是创建的对象
+           console.log(this); 
+           that = this;
+           this.uname = uname;
+           this.uage = uage;
+           this.sing();
+           this.btn = document.querySelector(&quot;button&quot;);//html网页中源码有button
+           this.btn.onclick = this.sing;
+       }
+       sing() {
+           //this指向的是btn
+           console.log(&quot;==================&quot;);
+           console.log(that.uname);
+           console.log(this);
+           console.log(&quot;==================&quot;);
+       }
+       dance() {
+           console.log(this);
+           _that = this;
+       }
+   }
+   var Tom = new Star(&#39;汤姆&#39;);
+   console.log(Tom === that);
+   Tom.dance();
+   console.log(Tom === _that);   </code></pre>
+</li>
+</ul>
+</li>
+</ol>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -284,6 +389,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -324,7 +434,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Tag - JavaScript&nbsp;",
+        "JavaScript子类继承父类方法并扩展&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
