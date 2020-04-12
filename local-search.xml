@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>JavaScript实现table栏切换</title>
+    <link href="/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/"/>
+    <url>/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="涉及到的新知识"><a href="#涉及到的新知识" class="headerlink" title="涉及到的新知识"></a>涉及到的新知识</h2><h3 id="在调用函数时为什么有的要加小括号有的不加小括号"><a href="#在调用函数时为什么有的要加小括号有的不加小括号" class="headerlink" title="在调用函数时为什么有的要加小括号有的不加小括号"></a>在调用函数时为什么有的要加小括号有的不加小括号</h3><p>加小括号之后表示这个函数立即执行，不加小括号是触发某一事件执行</p><p>如下代码就是为了实现当按键被点击之后执行函数</p><pre><code class="javascript"> this.lis[i].onclick = this.toggleTab;</code></pre><h3 id="this指向问题"><a href="#this指向问题" class="headerlink" title="this指向问题"></a>this指向问题</h3><p>在全局函数中this等于windows,当函数作为某个对象的方法被调用时，this等于那个对象</p><p>下图中的this指向的就是新new出的对象，声明变量that是为了保存这里的this指向的tab对象，在以后代码中使用。</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200412091458.png" srcset="/img/loading.gif" alt=""></p><p>​    控制台输出这里的this对象如下</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200412091523.png" srcset="/img/loading.gif" alt=""></p><h3 id="在tab栏切换中如何实现样式的切换"><a href="#在tab栏切换中如何实现样式的切换" class="headerlink" title="在tab栏切换中如何实现样式的切换"></a>在tab栏切换中如何实现样式的切换</h3><p>先把其他栏样式清除，然后为当前栏设置样式</p><h3 id="在tab栏中新增的栏位样式怎么控制"><a href="#在tab栏中新增的栏位样式怎么控制" class="headerlink" title="在tab栏中新增的栏位样式怎么控制"></a>在tab栏中新增的栏位样式怎么控制</h3><p>这里的栏位包含两个元素li和span，具体实现方法就是在添加后重新获取li和span，获取的方法独立出一个函数。</p><h3 id="双击禁止选中文字"><a href="#双击禁止选中文字" class="headerlink" title="双击禁止选中文字"></a>双击禁止选中文字</h3><pre><code class="javascript"> window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();</code></pre><h2 id="js代码如下"><a href="#js代码如下" class="headerlink" title="js代码如下"></a>js代码如下</h2><pre><code class="javascript">var that; //为了获取construct的thisclass Tab {    constructor(id) {        //获取元素        that = this;        console.log(this);        this.main = document.querySelector(id);        this.add = this.main.querySelector(&#39;.tabadd&#39;);        //li的父元素        this.ul = this.main.querySelector(&#39;.fisrstnav ul:first-child&#39;);        //section的父元素        this.fsection = this.main.querySelector(&#39;.tabscon&#39;);        this.init(); //为了new对象时自动执行    }    init() {        //获取所有节点        this.updateNode();        //init初始化相关元素让其监听事件        this.add.onclick = this.addTab;        for (var i = 0; i &lt; this.lis.length; i++) {            this.lis[i].index = i;            this.lis[i].onclick = this.toggleTab; //不加小括号的原因是防止调用就执行            this.remove[i].onclick = this.removeTab;            this.spans[i].ondblclick = this.editTab;            this.sections[i].ondblclick = this.editTab;        }    }    updateNode() {            this.lis = this.main.querySelectorAll(&#39;li&#39;);            this.sections = this.main.querySelectorAll(&#39;section&#39;);            this.remove = this.main.querySelectorAll(&#39;.icon-guanbi&#39;);            this.spans = this.main.querySelectorAll(&#39;.fisrstnav li span:first-child&#39;);        }        //1.切换功能    toggleTab() {            // this.clearClass();这里的this是每一个小li而不是实例化对象，要用that调用            that.clearClass();            this.className = &#39;liactive&#39;;            that.sections[this.index].className = &#39;conactive&#39;;        }        //清除所有li和section样式    clearClass() {            for (var i = 0; i &lt; this.lis.length; i++) {                this.lis[i].className = &#39;&#39;;                this.sections[i].className = &#39;&#39;;            }        }        //2.添加功能    addTab() {            that.clearClass();            var random = Math.random();            //创建li和section元素            var li = &#39;&lt;li class=&quot;liactive&quot;&gt;&lt;span&gt;新选项卡&lt;/span&gt;&lt;span class=&quot;iconfont icon-guanbi&quot;&gt;&lt;/span&gt;&lt;/li&gt;&#39;;            var section = &#39;&lt;section class=&quot;conactive&quot;&gt;&#39; + random + &#39;&lt;/section&gt;&#39;;            //将其追加到父元素            that.ul.insertAdjacentHTML(&#39;beforeend&#39;, li);            that.fsection.insertAdjacentHTML(&#39;beforeend&#39;, section);            //点击加号按钮重新获取li和section            that.init();        }        //3.删除功能    removeTab(e) { //e是添加事件对象为了组织冒泡            e.stopPropagation(); //防止触发li的切换点击事件            var index = this.parentNode.index;            console.log(index);            //根据索引号删除对应的li和section            that.lis[index].remove();            that.sections[index].remove();            that.init();            //当我们删除的不是选中状态的li的时候原来选中状态的li保持不变            if (document.querySelector(&#39;.liactive&#39;)) return;            //当我们删除选定状态的li之后，让他前一个li处于选定状态            index--;            //手动调用点击事件             that.lis[index] &amp;&amp; that.lis[index].click();            //&amp;&amp;前面为真就点击        }        //4.修改功能    editTab() {        // 双击禁止选中文字        var str = this.innerHTML;        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();        this.innerHTML = &#39;&lt;input type = &quot;text&quot;/ &gt; &#39;;        var input = this.children[0];        input.value = str;        input.select(); //文本框的文字处于选中状态        //当我们离开文本框，就把文本框的值给span        input.onblur = function() {            this.parentNode.innerHTML = this.value;        }        input.onkeyup = function(e) {            if (e.keyCode === 13) {                //手动调用表单失去焦点事件不需要鼠标离开事件                this.blur();            }        }    }}new Tab(&#39;#tab&#39;);</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript子类继承父类方法并扩展</title>
     <link href="/2020/04/11/JavaScript%E5%AD%90%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E6%96%B9%E6%B3%95%E5%B9%B6%E6%89%A9%E5%B1%95/"/>
     <url>/2020/04/11/JavaScript%E5%AD%90%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E6%96%B9%E6%B3%95%E5%B9%B6%E6%89%A9%E5%B1%95/</url>
@@ -79,9 +104,9 @@
   
   
   <entry>
-    <title>javascript面向对象</title>
-    <link href="/2020/04/08/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    <url>/2020/04/08/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <title>JavaScript面向对象</title>
+    <link href="/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <url>/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
     
     <content type="html"><![CDATA[<h2 id="创建一个类并在类中添加方法"><a href="#创建一个类并在类中添加方法" class="headerlink" title="创建一个类并在类中添加方法"></a>创建一个类并在类中添加方法</h2><ol><li><p>通过class关键字创造类，类名我们还是习惯性定义首字母大写</p></li><li><p>类里面有个constructor函数，可以接收传递过来的参数，同时返回实例对象</p></li><li><p>constructor函数只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数类</p></li></ol><p>​        也会自动生成这个函数</p><ol start="4"><li><p>生成实例new不能省略</p></li><li><p>最后注意语法规范，创建类 类名后面不要加小括号，生成实例，类名后加小括号，</p></li></ol><p>​        构造函数不需要加function</p><p>  6 .类中的多个方法中不需要加逗号分割。</p><pre><code class="javascript">                //1. 创建一个明星类        class Star {            constructor(uname, age) { //方法不用加function                this.uname = uname; //接收了uname这个参数                this.age = age;            }            sing(song) {                // console.log(&quot;我唱歌&quot;);                console.log(this.uname + song);            }        }        //2. 利用类创建对象        var ldh = new Star(&#39;刘德华&#39;, 19);        var zxy = new Star(&#39;张学友&#39;, 20);        console.log(ldh);        console.log(zxy);        ldh.sing(&quot;冰雨&quot;);        zxy.sing(&quot;李香兰&quot;);</code></pre><p>执行结果如下</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200408092217.png" srcset="/img/loading.gif" alt=""></p><h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><p>类似于java的继承</p><pre><code class="javascript">class Father {            constructor(x, y) {                this.x = x;                this.y = y;            }            money() {                console.log(100);            }            sum() {                console.log(this.x + this.y);            }        }        class Son extends Father {            constructor(x, y) {                super(x, y); //将值传递到父类            }        }        var son = new Son(1, 2);        son.sum();        son.money();</code></pre><p>执行结果</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200408092031.png" srcset="/img/loading.gif" alt=""></p>]]></content>
     

@@ -145,6 +145,58 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200412084159.png" srcset="/img/loading.gif" alt="JavaScript实现table栏切换" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/">
+        <p class="h4 index-header">JavaScript实现table栏切换</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">涉及到的新知识在调用函数时为什么有的要加小括号有的不加小括号加小括号之后表示这个函数立即执行，不加小括号是触发某一事件执行
+如下代码就是为了实现当按键被点击之后执行函数
+ this.lis[i].onclick = this.toggleTab;
+this指向问题在全局函数中this等于windows,当函数作为某个对象的方法被调用时，this等于那个对象
+下图中的this指向的就是新new出的对象，声明变量that是为了保存这里的this指向的tab对象，在以后代码中使用。
+
+​    控制台输出这里的this对象如下
+
+在tab栏切换中如何实现样式的切换先把其他栏样式清除，然后为当前栏设置样式
+在tab栏中新增的栏位样式怎么控制这里的栏位包含两个元素li和span，具体实现方法就是在添加后重新获取li和span，获取的方法独立出一个函数。
+双击禁止选中文字 window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+js代码如下var that; //为了获取</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/11/JavaScript%E5%AD%90%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E6%96%B9%E6%B3%95%E5%B9%B6%E6%89%A9%E5%B1%95/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200411161923.png" srcset="/img/loading.gif" alt="JavaScript子类继承父类方法并扩展" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -306,14 +358,14 @@ Vbus: 相对于参考节点的节点电压向量（例如节点电压）
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/08/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409175445.png" srcset="/img/loading.gif" alt="javascript面向对象" class="img-fluid rounded z-depth-3 index-thumbnails">
+        <a href="/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409175445.png" srcset="/img/loading.gif" alt="JavaScript面向对象" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/08/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-        <p class="h4 index-header">javascript面向对象</p>
+      <a href="/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+        <p class="h4 index-header">JavaScript面向对象</p>
         
         
           
@@ -744,74 +796,11 @@ var rg = /^abc$/;
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173814.png" srcset="/img/loading.gif" alt="JavaScript闭包" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/">
-        <p class="h4 index-header">JavaScript闭包</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是闭包闭包是指有权访问另一个函数作用域中变量的函数
-简单的理解就是，一个作用域可以访问另外一个函数内部的变量。
-闭包的作用利用闭包 
-在init外面访问init内部的变量
-function init() {
-            var name = &quot;iron man&quot;;
-
-            function displayname() {
-                alert(name);
-            }
-            displayname();
-        }
-        init(); 
-一通猛修改,就可以访问了
-function init() {
-            var name = &quot;iron man&quot;;
-
-            function displayname() {
-                alert(name);
-            }
-            return displayname; //直接返回函数
-        }
-      </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

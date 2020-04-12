@@ -145,6 +145,69 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173814.png" srcset="/img/loading.gif" alt="JavaScript闭包" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/">
+        <p class="h4 index-header">JavaScript闭包</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是闭包闭包是指有权访问另一个函数作用域中变量的函数
+简单的理解就是，一个作用域可以访问另外一个函数内部的变量。
+闭包的作用利用闭包 
+在init外面访问init内部的变量
+function init() {
+            var name = &quot;iron man&quot;;
+
+            function displayname() {
+                alert(name);
+            }
+            displayname();
+        }
+        init(); 
+一通猛修改,就可以访问了
+function init() {
+            var name = &quot;iron man&quot;;
+
+            function displayname() {
+                alert(name);
+            }
+            return displayname; //直接返回函数
+        }
+      </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/01/String%E7%B1%BB/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200409174658.png" srcset="/img/loading.gif" alt="macos下hexo博客命令行git提交需要输入ssh的密码问题" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -661,58 +724,11 @@ public class Car{
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/12/29/linux/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409174016.png" srcset="/img/loading.gif" alt="linux常用命令" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/29/linux/">
-        <p class="h4 index-header">linux常用命令</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">文件文件夹相关命令
-同一目录下文件或者目录不能重名
-递归创建目录mkdir -p  dir1/dir2/dir3
-查看文件详细信息ls -lh
-删除文件夹命令rm -r
-强制删除忽略不存在的文件不提示rm -f
-
-放大缩小终端窗口
-放大终端窗口 ctrl shift =
-缩小终端窗口 ctrl  -
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-29&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/linux">linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
