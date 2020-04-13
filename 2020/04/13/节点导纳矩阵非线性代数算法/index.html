@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>节点导纳矩阵 ~ sainan&#39;s blog</title>
+  <title>节点导纳矩阵非线性代数算法 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200410113057.png')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200413080716.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -122,7 +122,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  Friday, April 10th 2020, 8:39 am
+                  Monday, April 13th 2020, 8:02 am
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    891 字
+                    332 字
                   </span>&nbsp;
                 
 
@@ -139,7 +139,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      4 分钟
+                      1 分钟
                   </span>&nbsp;
                 
 
@@ -172,79 +172,41 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>节点导纳矩阵既可根据自导纳和互导纳的定义直接求取，也可根据电路知识中找出改网络的关联矩阵，在节点电压方程的矩阵形式进行求解。这里阐述的是直接求解导纳矩阵。</p>
-<h2 id="节点导纳矩阵"><a href="#节点导纳矩阵" class="headerlink" title="节点导纳矩阵"></a>节点导纳矩阵</h2><p><strong>什么是导纳</strong>：是一个复数 ，在电力电子学中导纳定义为阻抗(impedance)的倒数；</p>
-<p><strong>什么是阻抗：</strong>也是一个复数，在具有电阻、电感和电容的电路里，对电路中的电流所起的阻碍作用叫做阻抗；</p>
-<p><strong>什么是节点导纳矩阵</strong>：电力网的运行状态可用节点方程或回路方程来描述。节点导纳矩阵是以系统元件的等值导纳为基础所建立的、描述电力网络各节点电压和注入电流之间关系的线性方程</p>
-<p><img src="https://gitee.com/saian/blogimage/raw/master//20200410090150.png" srcset="/img/loading.gif" alt=""></p>
-<p>I<sub>bus</sub> :  输入节点电流向量（例如外部电流源），电流方向定义为流向节点方向为正流出节点方向为负</p>
-<p>Y<sub>bus</sub>: 节点导纳矩阵,<code>对角元素</code>是与该节点有联系的<code>导纳之和</code>，称为自导纳（self-admittance），或驱动点导纳(drivingpoint admittance)<code>非对角元素</code>是两节点间<code>导纳的负值</code>，称为互导纳（mutual admittance），或转移导纳（transferadmittance）</p>
-<p>V<sub>bus</sub>: 相对于参考节点的节点电压向量（例如节点电压）</p>
-<h2 id="线性代数解法"><a href="#线性代数解法" class="headerlink" title="线性代数解法"></a>线性代数解法</h2><p>MATLAB 中形成节点导纳矩阵的两个函数ybus和lfbus</p>
-<p>函数Y=ybus（zdata ）用来形成节点导纳矩阵，zdata 是线路数据输入变量，包括四</p>
-<p>项，前两项是节点编号，后两项是线路电阻和电抗，均以标幺值表示，函数返回节点导纳矩</p>
-<p>阵。</p>
-<p>ybus如下：</p>
-<pre><code class="matlab">%  Bus Admittance Matrix
-%  Copyright (c)  1998 by H. Saadat.
-
-function[Ybus] = ybus(zdata)
-nl=zdata(:,1); nr=zdata(:,2); R=zdata(:,3); X=zdata(:,4);
-nbr=length(zdata(:,1)); nbus = max(max(nl), max(nr));
-Z = R + j*X;                            %branch impedance
-y= ones(nbr,1)./Z;                     %branch admittance
-Ybus=zeros(nbus,nbus);          % initialize Ybus to zero
-for k = 1:nbr;   % formation of the off diagonal elements
-    if nl(k) &gt; 0 &amp; nr(k) &gt; 0
-    Ybus(nl(k),nr(k)) = Ybus(nl(k),nr(k)) - y(k);
-    Ybus(nr(k),nl(k)) = Ybus(nl(k),nr(k));
-    end
-end
-for n = 1:nbus       % formation of the diagonal elements
-    for k = 1:nbr
-    if nl(k) == n | nr(k) == n
-    Ybus(n,n) = Ybus(n,n) + y(k);
-    else, end
-    end
+            <p>两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)。</p>
+<h3 id="高斯-塞德尔法"><a href="#高斯-塞德尔法" class="headerlink" title="高斯-塞德尔法"></a>高斯-塞德尔法</h3><p><img src="https://gitee.com/saian/blogimage/raw/master//20200413081217.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="matlab实现高斯塞德尔算法"><a href="#matlab实现高斯塞德尔算法" class="headerlink" title="matlab实现高斯塞德尔算法"></a>matlab实现高斯塞德尔算法</h4><p><img src="https://gitee.com/saian/blogimage/raw/master//20200413145750.png" srcset="/img/loading.gif" alt=""></p>
+<p>matlab代码如下：</p>
+<pre><code class="matlab">dx=1;                   % Change in variable is set to a high value 设置一个高值
+x=2;                                             % Initial estimate 初始估计值
+iter = 0;                                       % Iteration counter 迭代计数
+disp(&#39;Iter    g         dx        x&#39;)         % Heading for results 解的题头
+while abs(dx) &gt;= 0.001 &amp; iter &lt; 100          % Test for convergence 测试收敛
+iter = iter + 1;                                % No. of iterations 迭代次数
+g = -1/9*x^3+6/9*x^2+4/9 ;
+dx = g-x;                                      % Change in variable 修正量
+x = x + dx;                              % Successive approximation 连续迭代
+fprintf(&#39;%g&#39;, iter), disp([g, dx, x])
 end
 </code></pre>
-<p>输入以下命令或者直接作为文件执行</p>
-<pre><code class="matlab">%    From  To   R    X
-z = [ 0    1    0   1.0
-      0    2    0   0.8
-      1    2    0   0.4
-      1    3    0   0.2
-      2    3    0   0.2
-      3    4    0   0.08];
- [Ybus] = ybus(z)                         % bus admittance matrix
-Ibus = [-j*1.1; -j*1.25; 0; 0]; % vector of injected bus currents
-Zbus = inv(Ybus)                           % bus impedance matrix
-Vbus = Zbus*Ibus
-%Vbus = Ybus\Ibus</code></pre>
-<p>执行结果</p>
-<pre><code class="matlab">Ybus =
-
-   0.0000 - 8.5000i   0.0000 + 2.5000i   0.0000 + 5.0000i   0.0000 + 0.0000i
-   0.0000 + 2.5000i   0.0000 - 8.7500i   0.0000 + 5.0000i   0.0000 + 0.0000i
-   0.0000 + 5.0000i   0.0000 + 5.0000i   0.0000 -22.5000i   0.0000 +12.5000i
-   0.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 +12.5000i   0.0000 -12.5000i
-
-
-Zbus =
-
-   0.0000 + 0.5000i   0.0000 + 0.4000i   0.0000 + 0.4500i   0.0000 + 0.4500i
-   0.0000 + 0.4000i   0.0000 + 0.4800i   0.0000 + 0.4400i   0.0000 + 0.4400i
-   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.5450i
-   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.6250i
-
-
-Vbus =
-
-    1.0500
-    1.0400
-    1.0450
-    1.0450</code></pre>
-<p>两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)，这些技术应用于求解功率潮流问题。三个程序 lfgauss、 lfnewton 、decouple 分别用高斯法、牛顿法和解耦的牛顿法，求解功率潮流方程。</p>
+<h3 id="牛顿-拉夫法"><a href="#牛顿-拉夫法" class="headerlink" title="牛顿-拉夫法"></a>牛顿-拉夫法</h3><p><img src="https://gitee.com/saian/blogimage/raw/master//20200413150246.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//20200413150331.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//20200413150354.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="matlab实现牛顿-拉夫法"><a href="#matlab实现牛顿-拉夫法" class="headerlink" title="matlab实现牛顿-拉夫法"></a>matlab实现牛顿-拉夫法</h3><p><img src="https://gitee.com/saian/blogimage/raw/master//20200413164536.png" srcset="/img/loading.gif" alt=""></p>
+<p>matlab代码如下：</p>
+<pre><code class="matlab">dx=1;                   % Change in variable is set to a high value 变量设置一个高值
+x=input(&#39;Enter the initial estimate -&gt; &#39;);       % Initial estimate 初始估计值
+iter = 0;                                       % Iteration counter    迭代计数
+disp(&#39;iter   Dc        J         dx         x&#39;)% Heading for result 解的题头
+while abs(dx) &gt;= 0.001 &amp; iter &lt; 100          % Test for convergence 测试收敛
+iter = iter + 1;                                % No. of iterations 迭代次数
+Dc=4 - (x^3-6*x^2+9*x);                                  % Residual 差
+J = 3*x^2-12*x+9;                                      % Derivative 导数
+dx= Dc/J;                                       %Change in variable 修正量
+x=x+dx;                                       % Successive solution 连续迭代
+fprintf(&#39;%g&#39;, iter), disp([Dc, J, dx, x])
+end
+chp6fig5                        % Graphical display for Example 6.4
+</code></pre>
 
             <hr>
           </div>
@@ -264,7 +226,7 @@ Vbus =
               <span>
                 <i class="iconfont icon-tag"></i>
                 
-                  <a class="hover-with-bg" href="/tags/%E7%94%B5%E5%8A%9B%E7%9B%B8%E5%85%B3">电力相关</a>
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
                 
               </span>
             
@@ -436,7 +398,7 @@ Vbus =
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "节点导纳矩阵&nbsp;",
+        "节点导纳矩阵非线性代数算法&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

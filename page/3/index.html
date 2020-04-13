@@ -145,6 +145,130 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409175709.png" srcset="/img/loading.gif" alt="成员变量和局部变量区别" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/">
+        <p class="h4 index-header">成员变量和局部变量区别</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">成员变量和局部变量区别1.变量根据定义位置的不同，我们给变量起了不同名字。如下图所示：
+public class Car{
+    String color; //成员变量
+    public void drive(){
+        int speed = 80; //局部变量
+        System.out.println(&quot;时速：&quot;+ speed);
+    }
+}
+
+在类中的位置不同重点
+成员变量：类中，方法外
+局部变量：方法中或者方法声明上（形式参数）
+
+
+作用的范围不一样重点
+成员变量：类中
+局部变量：方法中
+
+
+初始化值不同重点
+成员变量：有默认值
+局部变量：没有默认值。必须先定义，赋值，最后使用
+
+
+内存中位置不同了解
+内存变量：堆内存
+局部变量：栈内存
+
+
+声明周期不同了解
+成员变量：随着对象的创建而存在，随着对象的消失而消失
+局部变量：随着方法的调用而存在，随着方法的消失而消失
+
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/java">java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173538.png" srcset="/img/loading.gif" alt="java内存的划分" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/">
+        <p class="h4 index-header">java内存的划分</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">java内存的划分
+栈(Stack）：存放的都是方法中的局部变量。方法的运行一定要在栈中运行。 局部变量：方法的参数或方法{}内部的变量。 作用域：一旦超出作用域，立即从栈中消失。
+堆(heap)：凡是new出来的东西都在堆中。 堆内存里面的东西都有一个地址值：16进制。 堆内存里面的数据，都有默认值。规则： &emsp;&emsp;如果是整数类型&emsp;&emsp;&emsp;默认为0 &emsp;&emsp;如果是浮点类型&emsp;&emsp;&emsp;默认为0.0 &emsp;&emsp;如果是字符类型&emsp;&emsp;&emsp;默认为’\u0000’ &emsp;&emsp;如果是布尔类型&emsp;&emsp;&emsp;默认为false &emsp;&emsp;如果是引用类型&emsp;&emsp;&emsp;默认为null
+方法区(Methode Area)：储存.class相关信息，包含方法的信息。
+本地方法栈(Native Area)：与操作系统相关。
+寄存器(pc Register)：与cpu相关。
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/java">java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2019/12/29/linux/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200409174016.png" srcset="/img/loading.gif" alt="linux常用命令" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>

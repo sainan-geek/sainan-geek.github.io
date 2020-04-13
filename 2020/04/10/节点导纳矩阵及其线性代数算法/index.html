@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>节点导纳矩阵及其线性代数算法 ~ sainan&#39;s blog</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>sainan's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200410113057.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Friday, April 10th 2020, 8:39 am
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    808 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>节点导纳矩阵既可根据自导纳和互导纳的定义直接求取，也可根据电路知识中找出改网络的关联矩阵，在节点电压方程的矩阵形式进行求解。这里阐述的是直接求解导纳矩阵。</p>
+<h2 id="节点导纳矩阵"><a href="#节点导纳矩阵" class="headerlink" title="节点导纳矩阵"></a>节点导纳矩阵</h2><p><strong>什么是导纳</strong>：是一个复数 ，在电力电子学中导纳定义为阻抗(impedance)的倒数；</p>
+<p><strong>什么是阻抗：</strong>也是一个复数，在具有电阻、电感和电容的电路里，对电路中的电流所起的阻碍作用叫做阻抗；</p>
+<p><strong>什么是节点导纳矩阵</strong>：电力网的运行状态可用节点方程或回路方程来描述。节点导纳矩阵是以系统元件的等值导纳为基础所建立的、描述电力网络各节点电压和注入电流之间关系的线性方程</p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//20200410090150.png" srcset="/img/loading.gif" alt=""></p>
+<p>I<sub>bus</sub> :  输入节点电流向量（例如外部电流源），电流方向定义为流向节点方向为正流出节点方向为负</p>
+<p>Y<sub>bus</sub>: 节点导纳矩阵,<code>对角元素</code>是与该节点有联系的<code>导纳之和</code>，称为自导纳（self-admittance），或驱动点导纳(drivingpoint admittance)<code>非对角元素</code>是两节点间<code>导纳的负值</code>，称为互导纳（mutual admittance），或转移导纳（transferadmittance）</p>
+<p>V<sub>bus</sub>: 相对于参考节点的节点电压向量（例如节点电压）</p>
+<h2 id="线性代数解法"><a href="#线性代数解法" class="headerlink" title="线性代数解法"></a>线性代数解法</h2><p>MATLAB 中形成节点导纳矩阵的两个函数ybus和lfbus</p>
+<p>函数Y=ybus（zdata ）用来形成节点导纳矩阵，zdata 是线路数据输入变量，包括四</p>
+<p>项，前两项是节点编号，后两项是线路电阻和电抗，均以标幺值表示，函数返回节点导纳矩</p>
+<p>阵。</p>
+<p>ybus如下：</p>
+<pre><code class="matlab">%  Bus Admittance Matrix
+%  Copyright (c)  1998 by H. Saadat.
+
+function[Ybus] = ybus(zdata)
+nl=zdata(:,1); nr=zdata(:,2); R=zdata(:,3); X=zdata(:,4);
+nbr=length(zdata(:,1)); nbus = max(max(nl), max(nr));
+Z = R + j*X;                            %branch impedance
+y= ones(nbr,1)./Z;                     %branch admittance
+Ybus=zeros(nbus,nbus);          % initialize Ybus to zero
+for k = 1:nbr;   % formation of the off diagonal elements
+    if nl(k) &gt; 0 &amp; nr(k) &gt; 0
+    Ybus(nl(k),nr(k)) = Ybus(nl(k),nr(k)) - y(k);
+    Ybus(nr(k),nl(k)) = Ybus(nl(k),nr(k));
+    end
+end
+for n = 1:nbus       % formation of the diagonal elements
+    for k = 1:nbr
+    if nl(k) == n | nr(k) == n
+    Ybus(n,n) = Ybus(n,n) + y(k);
+    else, end
+    end
+end
+</code></pre>
+<p>输入以下命令或者直接作为文件执行</p>
+<pre><code class="matlab">%    From  To   R    X
+z = [ 0    1    0   1.0
+      0    2    0   0.8
+      1    2    0   0.4
+      1    3    0   0.2
+      2    3    0   0.2
+      3    4    0   0.08];
+ [Ybus] = ybus(z)                         % bus admittance matrix
+Ibus = [-j*1.1; -j*1.25; 0; 0]; % vector of injected bus currents
+Zbus = inv(Ybus)                           % bus impedance matrix
+Vbus = Zbus*Ibus
+%Vbus = Ybus\Ibus</code></pre>
+<p>执行结果</p>
+<pre><code class="matlab">Ybus =
+
+   0.0000 - 8.5000i   0.0000 + 2.5000i   0.0000 + 5.0000i   0.0000 + 0.0000i
+   0.0000 + 2.5000i   0.0000 - 8.7500i   0.0000 + 5.0000i   0.0000 + 0.0000i
+   0.0000 + 5.0000i   0.0000 + 5.0000i   0.0000 -22.5000i   0.0000 +12.5000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 +12.5000i   0.0000 -12.5000i
+
+
+Zbus =
+
+   0.0000 + 0.5000i   0.0000 + 0.4000i   0.0000 + 0.4500i   0.0000 + 0.4500i
+   0.0000 + 0.4000i   0.0000 + 0.4800i   0.0000 + 0.4400i   0.0000 + 0.4400i
+   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.5450i
+   0.0000 + 0.4500i   0.0000 + 0.4400i   0.0000 + 0.5450i   0.0000 + 0.6250i
+
+
+Vbus =
+
+    1.0500
+    1.0400
+    1.0450
+    1.0450</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E7%94%B5%E5%8A%9B%E7%9B%B8%E5%85%B3">电力相关</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "节点导纳矩阵及其线性代数算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
