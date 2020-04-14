@@ -131,7 +131,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    467 字
+                    783 字
                   </span>&nbsp;
                 
 
@@ -139,7 +139,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -174,6 +174,20 @@
           <div class="markdown-body">
             <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>潮流分析</strong>: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础</p>
 <p><strong>潮流计算：</strong>潮流计算是根据给定的电网结构、参数和<a href="https://baike.baidu.com/item/发电机/995009" target="_blank" rel="noopener">发电机</a>、<a href="https://baike.baidu.com/item/负荷/11010944" target="_blank" rel="noopener">负荷</a>等元件的运行条件，确定电力系统各部分<a href="https://baike.baidu.com/item/稳态" target="_blank" rel="noopener">稳态</a>运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是<a href="https://baike.baidu.com/item/网损" target="_blank" rel="noopener">网损</a>计算、静态安全分析、<a href="https://baike.baidu.com/item/暂态稳定计算" target="_blank" rel="noopener">暂态稳定计算</a>、小干扰<a href="https://baike.baidu.com/item/静态稳定计算" target="_blank" rel="noopener">静态稳定计算</a>、短路计算、静态和动态等值计算的基础。</p>
+<p>​    潮流研究，一般叫做负荷潮流，是电力系统分析的一个重要部分，对于电力规划，经济调度，和当前系统控制以及未来发展规划都很有必要，包括求解节点电压幅值及其相位和每条线路上的有功和无功功率流。</p>
+<ul>
+<li><p>在解决潮流问题时假设系统处于三相平衡状态就可以采用单相模型。每个节点要求四个参数：</p>
+<p>电压幅值｜V｜，相角δ，有功功率P以及无功功率Q</p>
+</li>
+</ul>
+<ul>
+<li>系统节点分三个类型：<ul>
+<li>平衡节点：又称为松弛节点或摇摆节点，用来作为系统的参考节点，该节点的电压幅值和相角已知，这个节点平衡了负荷功率和发电机功率在网络损耗情况的差异、</li>
+<li>负荷节点：这些节点的<code>有功功率</code>和<code>无功功率</code>已知，<code>幅值</code>和<code>向角</code>为未知，也叫P-Q节点</li>
+<li>调整节点：这些节点是发电机节点，也成为电压控制节点，有功功率和电压幅值已知，向角和无功功率未知，无功功率限制通常也规定，这种节点叫P-V节点</li>
+</ul>
+</li>
+</ul>
 <p><strong>潮流计算方法：</strong></p>
 <ul>
 <li><p>网络方程可以有多种形式，但是<code>节点电压方程</code>法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。</p>

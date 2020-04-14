@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Archives ~ sainan&#39;s blog</title>
+  <title>利用数组新增方法操作数据并显示到表格中 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/earth.jpeg')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200414184859.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -117,6 +117,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Tuesday, April 14th 2020, 8:46 am
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    466 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -128,47 +163,153 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">24 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/02/12/ArrayList%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ArrayList类</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">成员变量和局部变量区别</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">java内存的划分</span>
-      <span style="float: right;">02-04</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="涉及到的新知识"><a href="#涉及到的新知识" class="headerlink" title="涉及到的新知识"></a>涉及到的新知识</h2><ul>
+<li><p>如何渲染到html中</p>
+<p>先获取js标签，然后用forEach循环遍历元素，利用函数函数传进来的是数据对象，用对象<code>.</code>方法名获取数据对象中具体的数值，然后用字符串拼接的方法添加到html代码中，再用innerHTML实现表格添加</p>
+</li>
+<li><p>如何筛选指定的元素</p>
+<p>使用ES5新增方法 filte或 some</p>
+</li>
+</ul>
+<pre><code class="javascript">      //利用新增数组的方法操作数据
+        var data = [{
+            id: 1,
+            pname: &#39;小米&#39;,
+            price: 3999
+        }, {
+            id: 2,
+            pname: &#39;oppo&#39;,
+            price: 999
+        }, {
+            id: 3,
+            pname: &#39;荣耀&#39;,
+            price: 1299
+        }, {
+            id: 4,
+            pname: &#39;华为&#39;,
+            price: 1999
+        }, ];
+        //1.获取相应的元素
+        var tbody = document.querySelector(&#39;tbody&#39;);
+        var search_price = document.querySelector(&#39;.search-price&#39;);
+        var start = document.querySelector(&#39;.start&#39;);
+        var end = document.querySelector(&#39;.end&#39;);
+        var product = document.querySelector(&#39;.product&#39;);
+        var search_pro = document.querySelector(&#39;.search-pro&#39;);
+        //2.把数据渲染到页面中
+        setData(data);
 
-              </div>
-            </div>
+        function setData(mydata) {
+            //先清空原来的数据
+            tbody.innerHTML = &#39;&#39;;
+            mydata.forEach(function(value) {
+                console.log(value);
+                //创建一个行
+                var tr = document.createElement(&#39;tr&#39;);
+                tr.innerHTML = &#39;&lt;td&gt;&#39; + value.id + &#39;&lt;/td&gt;&lt;td&gt;&#39; + value.pname + &#39;&lt;/td&gt;&lt;td&gt;&#39; + value.price + &#39;&lt;/td&gt;&#39;;
+                tbody.appendChild(tr);
+            });
+        }
+        //根据价格查询商品
+        //当我们点击了按钮就可以根据我们商品的价格去筛选数组里面的对象
+        search_price.addEventListener(&#39;click&#39;, function() {
+            var newdata = data.filter(function(value) {
+                return value.price &gt;= start.value &amp;&amp; value.price &lt;= end.value;
+            });
+            console.log(newdata);
+            //把筛选完之后的对象渲染到页面中
+            setData(newdata);
+        });
+        //如过查询数组中唯一的元素或者大量数据用some因为some找到之后就不再循环了效率高
+        search_pro.addEventListener(&#39;click&#39;, function() {
+            var arr = []; //把对象变成数组
+            //怎么让some返回值, 做判断
+            data.some(function(value) {
+                if (value.pname == product.value) {
+                    arr.push(value); //对象添加到数组中
+                    return true; //return 必须写true 
+                }
+
+            });
+            setData(arr);
+        })</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -247,6 +388,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -287,7 +433,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "利用数组新增方法操作数据并显示到表格中&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

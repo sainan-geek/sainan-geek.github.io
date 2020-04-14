@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>利用数组新增方法操作数据并显示到表格中</title>
+    <link href="/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/"/>
+    <url>/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/</url>
+    
+    <content type="html"><![CDATA[<h2 id="涉及到的新知识"><a href="#涉及到的新知识" class="headerlink" title="涉及到的新知识"></a>涉及到的新知识</h2><ul><li><p>如何渲染到html中</p><p>先获取js标签，然后用forEach循环遍历元素，利用函数函数传进来的是数据对象，用对象<code>.</code>方法名获取数据对象中具体的数值，然后用字符串拼接的方法添加到html代码中，再用innerHTML实现表格添加</p></li><li><p>如何筛选指定的元素</p><p>使用ES5新增方法 filte或 some</p></li></ul><pre><code class="javascript">      //利用新增数组的方法操作数据        var data = [{            id: 1,            pname: &#39;小米&#39;,            price: 3999        }, {            id: 2,            pname: &#39;oppo&#39;,            price: 999        }, {            id: 3,            pname: &#39;荣耀&#39;,            price: 1299        }, {            id: 4,            pname: &#39;华为&#39;,            price: 1999        }, ];        //1.获取相应的元素        var tbody = document.querySelector(&#39;tbody&#39;);        var search_price = document.querySelector(&#39;.search-price&#39;);        var start = document.querySelector(&#39;.start&#39;);        var end = document.querySelector(&#39;.end&#39;);        var product = document.querySelector(&#39;.product&#39;);        var search_pro = document.querySelector(&#39;.search-pro&#39;);        //2.把数据渲染到页面中        setData(data);        function setData(mydata) {            //先清空原来的数据            tbody.innerHTML = &#39;&#39;;            mydata.forEach(function(value) {                console.log(value);                //创建一个行                var tr = document.createElement(&#39;tr&#39;);                tr.innerHTML = &#39;&lt;td&gt;&#39; + value.id + &#39;&lt;/td&gt;&lt;td&gt;&#39; + value.pname + &#39;&lt;/td&gt;&lt;td&gt;&#39; + value.price + &#39;&lt;/td&gt;&#39;;                tbody.appendChild(tr);            });        }        //根据价格查询商品        //当我们点击了按钮就可以根据我们商品的价格去筛选数组里面的对象        search_price.addEventListener(&#39;click&#39;, function() {            var newdata = data.filter(function(value) {                return value.price &gt;= start.value &amp;&amp; value.price &lt;= end.value;            });            console.log(newdata);            //把筛选完之后的对象渲染到页面中            setData(newdata);        });        //如过查询数组中唯一的元素或者大量数据用some因为some找到之后就不再循环了效率高        search_pro.addEventListener(&#39;click&#39;, function() {            var arr = []; //把对象变成数组            //怎么让some返回值, 做判断            data.some(function(value) {                if (value.pname == product.value) {                    arr.push(value); //对象添加到数组中                    return true; //return 必须写true                 }            });            setData(arr);        })</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>节点导纳矩阵非线性代数算法</title>
     <link href="/2020/04/13/%E8%8A%82%E7%82%B9%E5%AF%BC%E7%BA%B3%E7%9F%A9%E9%98%B5%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AE%97%E6%B3%95/"/>
     <url>/2020/04/13/%E8%8A%82%E7%82%B9%E5%AF%BC%E7%BA%B3%E7%9F%A9%E9%98%B5%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AE%97%E6%B3%95/</url>
@@ -133,7 +158,7 @@
     <link href="/2020/04/09/%E6%BD%AE%E6%B5%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0/"/>
     <url>/2020/04/09/%E6%BD%AE%E6%B5%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0/</url>
     
-    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>潮流分析</strong>: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础</p><p><strong>潮流计算：</strong>潮流计算是根据给定的电网结构、参数和<a href="https://baike.baidu.com/item/发电机/995009" target="_blank" rel="noopener">发电机</a>、<a href="https://baike.baidu.com/item/负荷/11010944" target="_blank" rel="noopener">负荷</a>等元件的运行条件，确定电力系统各部分<a href="https://baike.baidu.com/item/稳态" target="_blank" rel="noopener">稳态</a>运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是<a href="https://baike.baidu.com/item/网损" target="_blank" rel="noopener">网损</a>计算、静态安全分析、<a href="https://baike.baidu.com/item/暂态稳定计算" target="_blank" rel="noopener">暂态稳定计算</a>、小干扰<a href="https://baike.baidu.com/item/静态稳定计算" target="_blank" rel="noopener">静态稳定计算</a>、短路计算、静态和动态等值计算的基础。</p><p><strong>潮流计算方法：</strong></p><ul><li><p>网络方程可以有多种形式，但是<code>节点电压方程</code>法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。</p></li><li><p>以<code>节点导纳矩阵</code>形成的网络方程是一个针对节点电流的线性、复数代数联立方程。</p></li><li><p>当节点电流已知时，用一组<code>线性代数方程</code>就可以解得电压，但在电力系统中给定的是功率而不是电流，导致出现了功率潮流方程(power flowequation)，这是一个非线性方程，需要迭代求解</p></li></ul><p><strong>从数学上说，潮流计算是求解<code>一组</code>由潮流方程描述的<code>非线性代数方程组</code>。</strong></p><p>有两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)</p><p>参考链接：<a href="https://baike.baidu.com/item/%E6%BD%AE%E6%B5%81%E8%AE%A1%E7%AE%97" target="_blank" rel="noopener">潮流计算</a>，<a href="http://www.bookask.com/book/115536.html" target="_blank" rel="noopener">电力系统分析</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>潮流分析</strong>: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础</p><p><strong>潮流计算：</strong>潮流计算是根据给定的电网结构、参数和<a href="https://baike.baidu.com/item/发电机/995009" target="_blank" rel="noopener">发电机</a>、<a href="https://baike.baidu.com/item/负荷/11010944" target="_blank" rel="noopener">负荷</a>等元件的运行条件，确定电力系统各部分<a href="https://baike.baidu.com/item/稳态" target="_blank" rel="noopener">稳态</a>运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是<a href="https://baike.baidu.com/item/网损" target="_blank" rel="noopener">网损</a>计算、静态安全分析、<a href="https://baike.baidu.com/item/暂态稳定计算" target="_blank" rel="noopener">暂态稳定计算</a>、小干扰<a href="https://baike.baidu.com/item/静态稳定计算" target="_blank" rel="noopener">静态稳定计算</a>、短路计算、静态和动态等值计算的基础。</p><p>​    潮流研究，一般叫做负荷潮流，是电力系统分析的一个重要部分，对于电力规划，经济调度，和当前系统控制以及未来发展规划都很有必要，包括求解节点电压幅值及其相位和每条线路上的有功和无功功率流。</p><ul><li><p>在解决潮流问题时假设系统处于三相平衡状态就可以采用单相模型。每个节点要求四个参数：</p><p>电压幅值｜V｜，相角δ，有功功率P以及无功功率Q</p></li></ul><ul><li>系统节点分三个类型：<ul><li>平衡节点：又称为松弛节点或摇摆节点，用来作为系统的参考节点，该节点的电压幅值和相角已知，这个节点平衡了负荷功率和发电机功率在网络损耗情况的差异、</li><li>负荷节点：这些节点的<code>有功功率</code>和<code>无功功率</code>已知，<code>幅值</code>和<code>向角</code>为未知，也叫P-Q节点</li><li>调整节点：这些节点是发电机节点，也成为电压控制节点，有功功率和电压幅值已知，向角和无功功率未知，无功功率限制通常也规定，这种节点叫P-V节点</li></ul></li></ul><p><strong>潮流计算方法：</strong></p><ul><li><p>网络方程可以有多种形式，但是<code>节点电压方程</code>法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。</p></li><li><p>以<code>节点导纳矩阵</code>形成的网络方程是一个针对节点电流的线性、复数代数联立方程。</p></li><li><p>当节点电流已知时，用一组<code>线性代数方程</code>就可以解得电压，但在电力系统中给定的是功率而不是电流，导致出现了功率潮流方程(power flowequation)，这是一个非线性方程，需要迭代求解</p></li></ul><p><strong>从数学上说，潮流计算是求解<code>一组</code>由潮流方程描述的<code>非线性代数方程组</code>。</strong></p><p>有两种广泛应用的解非线性代数方程的迭代方法：高斯-塞德尔法(Gauss-Seidel)和牛顿-拉夫逊法(Newton- Raphson)</p><p>参考链接：<a href="https://baike.baidu.com/item/%E6%BD%AE%E6%B5%81%E8%AE%A1%E7%AE%97" target="_blank" rel="noopener">潮流计算</a>，<a href="http://www.bookask.com/book/115536.html" target="_blank" rel="noopener">电力系统分析</a></p>]]></content>
     
     
     <categories>

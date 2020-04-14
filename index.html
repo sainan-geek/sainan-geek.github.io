@@ -145,6 +145,70 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200414184859.png" srcset="/img/loading.gif" alt="利用数组新增方法操作数据并显示到表格中" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/">
+        <p class="h4 index-header">利用数组新增方法操作数据并显示到表格中</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">涉及到的新知识
+如何渲染到html中
+先获取js标签，然后用forEach循环遍历元素，利用函数函数传进来的是数据对象，用对象.方法名获取数据对象中具体的数值，然后用字符串拼接的方法添加到html代码中，再用innerHTML实现表格添加
+
+如何筛选指定的元素
+使用ES5新增方法 filte或 some
+
+
+      //利用新增数组的方法操作数据
+        var data = [{
+            id: 1,
+            pname: &#39;小米&#39;,
+            price: 3999
+        }, {
+            id: 2,
+            pname: &#39;oppo&#39;,
+            price: 999
+        }, {
+            id: 3,
+            pname: &#39;荣耀&#39;,
+            price: 1299
+        }, {
+            id: 4,
+            pn</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/13/%E8%8A%82%E7%82%B9%E5%AF%BC%E7%BA%B3%E7%9F%A9%E9%98%B5%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AE%97%E6%B3%95/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200413080716.png" srcset="/img/loading.gif" alt="节点导纳矩阵非线性代数算法" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -444,17 +508,15 @@ Vbus: 相对于参考节点的节点电压向量（例如节点电压）
         <div class="index-excerpt" >
           <div class="index-text mb-1">基本概念潮流分析: 通常指负荷潮流，是电力系统分析和设计的主要组成部分，对系统规划、安全运行、经济调度和电力公司的功率交换非常重要。潮流分析还是其他电力系统分析的的基础
 潮流计算：潮流计算是根据给定的电网结构、参数和发电机、负荷等元件的运行条件，确定电力系统各部分稳态运行状态参数的计算。潮流计算是电力系统分析最基本的计算。除它自身的重要作用之外，在《电力系统分析综合程序》(PSASP)中，潮流计算还是网损计算、静态安全分析、暂态稳定计算、小干扰静态稳定计算、短路计算、静态和动态等值计算的基础。
-潮流计算方法：
+​    潮流研究，一般叫做负荷潮流，是电力系统分析的一个重要部分，对于电力规划，经济调度，和当前系统控制以及未来发展规划都很有必要，包括求解节点电压幅值及其相位和每条线路上的有功和无功功率流。
 
-网络方程可以有多种形式，但是节点电压方程法对于大多数电力系统分析问题都较为合适，并且已经被广泛地应用于电力系统分析中。
-
-以节点导纳矩阵形成的网络方程是一个针对节点电流的线性、复数代数联立方程。
-
-当节点电流已知时，用一组线性代数方程就可以解得电压，但在电力系统中给定的是功率而不是电流，导致出现了功率潮流方程(power flowequation)，这是一个非线性方程，需要迭代求解
+在解决潮流问题时假设系统处于三相平衡状态就可以采用单相模型。每个节点要求四个参数：
+电压幅值｜V｜，相角δ，有功功率P以及无功功率Q
 
 
-从数学上说，潮流计算是求解一组由潮流方程描述的非线性代数方程组。
-有两种广泛应用的解非线性代</div>
+
+系统节点分三个类型：
+平衡节点：又称为松弛节点或摇摆节点，用来作为系统的参考节点，该节点的电压幅值和相角已知，这个节点平衡了负荷功率和发电机功率在网络损耗情况的差</div>
         </div>
       </a>
 
@@ -663,72 +725,6 @@ git branch 分支名称 创建分</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/git">git</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/05/%E7%94%A8%E6%88%B7%E5%90%8D%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200410105149.png" srcset="/img/loading.gif" alt="用户名表单验证" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/05/%E7%94%A8%E6%88%B7%E5%90%8D%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/">
-        <p class="h4 index-header">用户名表单验证</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">验证用户名是否合法的小例子当用户名输入正确时显示为绿色并且提示显示正确
-当用户名输入错误时显示为红色并且提示显示错误
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;style&gt;
-    span {
-        color: black;
-    }
-
-    .right {
-        color: green;
-    }
-
-    .wrong {
-        color: red;
-    }
-&lt;/style&gt;
-
-&lt;body&gt;
-    &lt;in</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
           
         
       </div>
