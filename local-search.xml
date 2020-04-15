@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>ES5中的对象方法</title>
+    <link href="/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/"/>
+    <url>/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="对象方法相关操作"><a href="#对象方法相关操作" class="headerlink" title="对象方法相关操作"></a>对象方法相关操作</h2><h3 id="对象方法获取自身属性"><a href="#对象方法获取自身属性" class="headerlink" title="对象方法获取自身属性"></a>对象方法获取自身属性</h3><p> Object.keys()用于获取对象属性，效果类似于for…in，返回一个由属性名称组成的数组</p><pre><code class="javascript">//定义一个手机对象                var phone = {            id: 1,            pname: &#39;小米&#39;,            price: 1999,            num: 2000        };//用于获取对象自身的属性        var arr = Object.keys(phone);//输出数组        console.log(arr);//遍历数组        arr.forEach(function(value) {            console.log(value);        })</code></pre><p>输出结果</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200415073305.png" srcset="/img/loading.gif" alt=""></p><h3 id="对象方法修改自身属性"><a href="#对象方法修改自身属性" class="headerlink" title="对象方法修改自身属性"></a>对象方法修改自身属性</h3><p>Object.defineProperty(obj,prop,descriptor)定义对象中新属性或者修改原来的属性。</p><ul><li><p>obj:必须，目标对象  (修改哪个参数)</p></li><li><p>prop:必须，需定义或修改属性的名字 （修改哪个属性）</p></li><li><p>descriptor:必须，目标属性所拥有的特性（说明）以对象的形式书写,</p><p>descriptor中对象格式书写说明</p><ul><li><p>value:设置默认属性的值 默认为undefined</p></li><li><p>writable:值是否可以重写。true｜false 默认为false</p></li><li><p>enumerable:目标属性是否可以枚举。true｜false 默认为false(能不能遍历出来)</p></li><li><p>configurable:目标属性是否可以被删除或是否可以再次修改特性。true｜false 默认为false</p></li></ul></li></ul><pre><code class="javascript">var phone = {            id: 1,            pname: &#39;小米&#39;,            price: 1999,            num: 2000        };        //1.以前的对象属性添加和修改方式，就是直接赋值        //phone.num = 1000;        //phone.price = 999;        //现在修改方式        Object.defineProperty(phone, &#39;num&#39;, {            value: 1000,            enumerable: true,        })</code></pre><h4 id="descriptor的各个参数用法举例"><a href="#descriptor的各个参数用法举例" class="headerlink" title="descriptor的各个参数用法举例"></a>descriptor的各个参数用法举例</h4><p>数据对象</p><pre><code class="javascript">var phone = {            id: 1,            pname: &#39;小米&#39;,            price: 1999,            num: 2000        };</code></pre><p>设置不可修改id</p><pre><code class="javascript">        Object.defineProperty(phone, &#39;id&#39;, {            writable: false,        });        console.log(phone);        phone.id = 2;        console.log(phone);</code></pre><p>设置不可遍历属性</p><pre><code class="javascript">        Object.defineProperty(phone, &#39;address&#39;, {            value: &#39;中国吉林长春&#39;,            writable: false,            //如果值为false不允许遍历，默认为false            enumerable: false,            //如果值为false不允许修改            configurable: false,        });        console.log(phone);        console.log(Object.keys(phone));</code></pre><p>删除属性与禁止删除</p><pre><code class="javascript">        //由于address是后添加的默认为false所以不可以删除        delete phone.address;        console.log(phone);                //pname是之前就有的所以可以删除，如果要设置不可删除，进行如下操作                /*                Object.defineProperty(phone, &#39;pname&#39;, {            configurable: true,        });                */        delete phone.pname;        console.log(phone);</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>利用数组新增方法操作数据并显示到表格中</title>
     <link href="/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/"/>
     <url>/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/</url>

@@ -145,6 +145,69 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200415081804.png" srcset="/img/loading.gif" alt="ES5中的对象方法" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">ES5中的对象方法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">对象方法相关操作对象方法获取自身属性 Object.keys()用于获取对象属性，效果类似于for…in，返回一个由属性名称组成的数组
+//定义一个手机对象
+                var phone = {
+            id: 1,
+            pname: &#39;小米&#39;,
+            price: 1999,
+            num: 2000
+        };
+//用于获取对象自身的属性
+        var arr = Object.keys(phone);
+//输出数组
+        console.log(arr);
+//遍历数组
+        arr.forEach(function(value) {
+            console.log(value);
+        })
+输出结果
+
+对象方法修改自身属性Object.defineProperty(obj,prop,descriptor)定义对象中新属性或者修改原来的属性。
+
+obj:必须，目标对象  (修改哪个参数)
+
+prop:必须</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/14/%E5%88%A9%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%B0%E8%A1%A8%E6%A0%BC%E4%B8%AD/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200414184859.png" srcset="/img/loading.gif" alt="利用数组新增方法操作数据并显示到表格中" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -645,75 +708,6 @@ Changes to be committed:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/git">git</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/06/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173139.png" srcset="/img/loading.gif" alt="git基本操作" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/06/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-        <p class="h4 index-header">git基本操作</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">git官方中文文档网址：https://git-scm.com/book/zh/v2
-使用前配置在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。
-
-配置提交人姓名：git config --global user.name 提交人姓名
-
-配置提交人姓名：git config --global user.email 提交人邮箱 
-
-查看git配置信息：git config --list   
-
-
-提交步骤
-git init 初始化git仓库
-git status 查看文件状态
-git add 文件列表 追踪文件
-git commit -m 提交信息  向仓库中提交代码
-git log 查看提交记录
-
-撤销提交
-用暂存区中的文件覆盖工作目录中的文件： git checkout 文件
-
-将文件从暂存区中删除： git rm --cached 文件
-
-将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：git reset --hard commitID 
-
-
-分支相关命令
-git branch 查看分支
-
-git branch 分支名称 创建分</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
