@@ -145,6 +145,63 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/07/git%E6%92%A4%E9%94%80%E5%88%A0%E9%99%A4%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173331.png" srcset="/img/loading.gif" alt="git撤销删除相关的操作" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/07/git%E6%92%A4%E9%94%80%E5%88%A0%E9%99%A4%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C/">
+        <p class="h4 index-header">git撤销删除相关的操作</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题提出虽然之前也接触过git但是从未深入使用，今天使用遇到了一个问题就是我删除了一个文件现在我又不想删除了怎么办
+问题解决
+首先我新建了一个分支并切换到这个分支（可以随意瞎搞）
+ ohGit git:(master) git branch test-for-blog
+ ohGit git:(master) git checkout test-for-blog 
+Switched to branch &#39;test-for-blog&#39;
+
+
+
+我新建一个文件test.txt，添加到暂存区，并查看状态
+ ohGit git:(test-for-blog) touch test.txt
+ ohGit git:(test-for-blog) ✗ git add .
+ ohGit git:(test-for-blog) ✗ git status
+On branch test-for-blog
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/git">git</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/06/git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200409173139.png" srcset="/img/loading.gif" alt="git基本操作" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -722,73 +779,6 @@ else{
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-31&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409173738.png" srcset="/img/loading.gif" alt="JavaScript参数问题" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/">
-        <p class="h4 index-header">JavaScript参数问题</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">函数参数和实参个数不匹配的问题
-
-
-参数个数
-说明
-
-
-
-实参个数等于形参个数
-输出正确结果
-
-
-实参个数多于形参个数
-只取到形参个数
-
-
-实参个数少于形参个数
-多的形参定义为undefined，结果为NaN
-
-
-        function sum(sum1, sum2) {
-            console.log(sum1 + sum2);
-        }
-        sum(100, 200);//取到正确结果
-        sum(1000, 2000, 3000);//只取到形参个数
-        sum(10000);//实参个数少于形参多的定义为undefined，结果为NaN注解：在JavaScript中，形参的默认值是undefined
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

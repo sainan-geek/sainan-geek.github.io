@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>JavaScript作用域</title>
+    <link href="/2020/04/16/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <url>/2020/04/16/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Javascript作用域"><a href="#Javascript作用域" class="headerlink" title="Javascript作用域"></a>Javascript作用域</h2><ol><li><p>JavaScript的作用域的概念：就是代码名字（变量）在某个范围内起效果，目的是为了提高程序可靠性，耿重要的是减少命名冲突，在ES6之前有两种作用域，局部作用域和全局作用域</p><ul><li><p>全局作用域：整个script标签 或者是一个单独的js文件,下面这种写法num这个变量就在全局作用域里，在整个script标签内都能用</p><p> <img src="https://gitee.com/saian/blogimage/raw/master//20200416082433.png" srcset="/img/loading.gif" alt=""></p><ul><li><p>局部作用域（函数作用域）：在函数内部就是局部作用域 这个代码的名字只在函数内部起效果和作用</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200416202512.png" srcset="/img/loading.gif" alt=""></p></li><li><p>下面两个num不会冲突</p></li></ul></li></ul></li></ol><p><img src="https://gitee.com/saian/blogimage/raw/master//20200416203713.png" srcset="/img/loading.gif" alt=""> </p><h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域： 根据作用域的不同我们的变量分为<code>全局变量</code>和<code>局部变量</code></p><ol><li><p>全局变量： 在全局作用域下的变量，在全局下都可以使用（在函数内部没有声明直接赋值的变量属于全局变量）</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200416205649.png" srcset="/img/loading.gif" alt=""></p></li><li><p>局部变量：在局部作用域下的变量 或者在函数内部的变量就是局部变量(函数的形参也可以看为局部变量)</p></li></ol><p><img src="https://gitee.com/saian/blogimage/raw/master//20200416205706.png" srcset="/img/loading.gif" alt=""></p><h2 id="执行效率比较"><a href="#执行效率比较" class="headerlink" title="执行效率比较"></a>执行效率比较</h2><p>从执行效率来看局部变量和全局变量：</p><ol><li>全局变量只有浏览器关闭的时候才会销毁，比较占内存资源</li><li>局部变量当我执行完程序之后销毁比较节约内存资源</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ES5中的对象方法</title>
     <link href="/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/"/>
     <url>/2020/04/15/ES5%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/</url>
