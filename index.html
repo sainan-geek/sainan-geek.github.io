@@ -145,6 +145,52 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/04/17/%E6%BD%AE%E6%B5%81%E7%A8%8B%E5%BA%8F/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200417190407.png" srcset="/img/loading.gif" alt="潮流程序" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/17/%E6%BD%AE%E6%B5%81%E7%A8%8B%E5%BA%8F/">
+        <p class="h4 index-header">潮流程序</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">潮流程序高斯法高斯法的程序Ifgauss,他用到的程序有Ifybus、busout和lineflow程序。
+牛顿法Ifnewton和快速解耦法decouple这两个程序用到了busout和lineflow程序
+Ifgauss:程序设计为输入负荷和发电机的有功MW和无功Mvar，以及节点电压标幺值和相角的角度值。根据所选复功率为基准值将负荷和发电机的功率转换为标幺值。对于电压控制节点，如发电机节点，要提供一个无功功率限定值。当给定电压过高或过低时，无功功率可能超出功率限定值。在几次迭代之后(高斯-塞德尔迭代为10 次)，需要检查一次发电机节点的无功出力，如果接近限定值，电压幅值进行上下5%的调整，使得无功保持在限定值内。
+Lfybus：这个程序需要输入线路参数、变压器参数以及变压器分接头参数。并将这些参数放在名为linedata的文件中。这个程序将变阻抗为导纳，并得到节点导纳矩阵。
+busout:该程序以表格形式输出结果，节点输出包括电压幅值和相角，发电机和负荷的有功\和无功功率，以及并联电容器或电抗器的有功和无功功率。下面的例题中还包含了发电机和负荷的总功率。
+lineflow:该程序</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%94%B5%E5%8A%9B%E5%AD%A6%E4%B9%A0">电力学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/16/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200416210511.png" srcset="/img/loading.gif" alt="JavaScript作用域" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -669,71 +715,6 @@ Vbus: 相对于参考节点的节点电压向量（例如节点电压）
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E7%94%B5%E5%8A%9B%E7%9B%B8%E5%85%B3">电力相关</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200409175445.png" srcset="/img/loading.gif" alt="JavaScript面向对象" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/08/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-        <p class="h4 index-header">JavaScript面向对象</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">创建一个类并在类中添加方法
-通过class关键字创造类，类名我们还是习惯性定义首字母大写
-
-类里面有个constructor函数，可以接收传递过来的参数，同时返回实例对象
-
-constructor函数只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数类
-
-
-​        也会自动生成这个函数
-
-生成实例new不能省略
-
-最后注意语法规范，创建类 类名后面不要加小括号，生成实例，类名后加小括号，
-
-
-​        构造函数不需要加function
-  6 .类中的多个方法中不需要加逗号分割。
-                //1. 创建一个明星类
-        class Star {
-            constructor(uname, age) { //方法不用加function
-                this.uname = uname; //接收了uname这个参数
-                this.age = age;
-            }
-            sing(song) {
-               </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
           
         
       </div>

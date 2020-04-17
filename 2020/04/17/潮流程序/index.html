@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Archives ~ sainan&#39;s blog</title>
+  <title>潮流程序 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/earth.jpeg')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200417190407.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -117,6 +117,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Friday, April 17th 2020, 4:30 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    424 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -128,86 +163,89 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="潮流程序"><a href="#潮流程序" class="headerlink" title="潮流程序"></a>潮流程序</h2><h3 id="高斯法"><a href="#高斯法" class="headerlink" title="高斯法"></a>高斯法</h3><p>高斯法的程序<code>Ifgauss</code>,他用到的程序有<code>Ifybus</code>、<code>busout</code>和<code>lineflow</code>程序。</p>
+<p>牛顿法<code>Ifnewton</code>和快速解耦法<code>decouple</code>这两个程序用到了<code>busout</code>和<code>lineflow</code>程序</p>
+<p><strong>Ifgauss:</strong>程序设计为输入负荷和发电机的有功MW和无功Mvar，以及节点电压标幺值和相角的角度值。根据所选复功率为基准值将负荷和发电机的功率转换为标幺值。对于电压控制节点，如发电机节点，要提供一个无功功率限定值。当给定电压过高或过低时，无功功率可能超出功率限定值。在几次迭代之后(高斯-塞德尔迭代为10 次)，需要检查一次发电机节点的无功出力，如果接近限定值，电压幅值进行上下5%的调整，使得无功保持在限定值内。</p>
+<p><strong>Lfybus：</strong>这个程序需要<code>输入</code>线路参数、变压器参数以及变压器分接头参数。并将这些参数放<br>在名为<code>linedata</code>的文件中。这个程序将变阻抗为导纳，并得到节点导纳矩阵。</p>
+<p><strong>busout:</strong>该程序以表格形式<code>输出</code>结果，节点输出包括电压幅值和相角，发电机和负荷的有功\和无功功率，以及并联电容器或电抗器的有功和无功功率。下面的例题中还包含了发电机和负荷的总功率。</p>
+<p><strong>lineflow:</strong>该程序输出线路的相关数据，程序设计输出流入线路终端的有功和无功的功率流、线损以及节点功率，还包含整个系统的有功和无功损耗。</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<div class="list-group">
-  <p class="h4">27 posts in total.</p>
-  <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">arguments的使用</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript参数问题</span>
-      <span style="float: right;">03-30</span>
-    </a>
-  
-    
-    <a href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">windows下的hexo转移到mac平台</span>
-      <span style="float: right;">03-29</span>
-    </a>
-  
-    
-    <a href="/2020/02/12/ArrayList%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ArrayList类</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/06/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">成员变量和局部变量区别</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2020/02/04/java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">java内存的划分</span>
-      <span style="float: right;">02-04</span>
-    </a>
-  
-    
-      
-      <p class="h5">2019</p>
-    
-    <a href="/2019/12/29/linux/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">linux常用命令</span>
-      <span style="float: right;">12-29</span>
-    </a>
-  
-</div>
-
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E7%94%B5%E5%8A%9B%E5%AD%A6%E4%B9%A0">电力学习</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -286,6 +324,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -326,7 +369,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "潮流程序&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
