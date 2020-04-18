@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>码云团队协作</title>
+    <link href="/2020/04/18/%E7%A0%81%E4%BA%91%E5%A6%82%E4%BD%95%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/"/>
+    <url>/2020/04/18/%E7%A0%81%E4%BA%91%E5%A6%82%E4%BD%95%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="码云团队协作"><a href="#码云团队协作" class="headerlink" title="码云团队协作"></a>码云团队协作</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于项目的需要，要使用码云这个平台进行写作，我对这个团队协作还不是太熟悉，于是就建立了一个小号，建立了一个私有仓库，自己折腾折腾。记录在此</p><h3 id="新建团队仓库"><a href="#新建团队仓库" class="headerlink" title="新建团队仓库"></a>新建团队仓库</h3><p>新建了一个账号 ，新建了一个仓库（sainan_sun）作为团队协作的总仓库，内容如下。</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200417221807.png" srcset="/img/loading.gif" alt=""></p><h3 id="Fork自己的仓库"><a href="#Fork自己的仓库" class="headerlink" title="Fork自己的仓库"></a>Fork自己的仓库</h3><p>把它clone到自己的仓库（saian是自己的仓库）</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200417221618.png" srcset="/img/loading.gif" alt=""></p><h3 id="把Fork到仓库的代码clone到本地"><a href="#把Fork到仓库的代码clone到本地" class="headerlink" title="把Fork到仓库的代码clone到本地"></a>把Fork到仓库的代码clone到本地</h3><p>clone的时候遇到了一个问题:<code>git@gitee.com: Permission denied (publickey).fatal: Could not read from remote repository.</code>全部错误显示如下</p><p>![image-20200418211305369](/Users/sainan/Library/Application Support/typora-user-images/image-20200418211305369.png)</p><p>原因是应为我复制的是ssh链接而不是http链接，复制http链接链接就可以clone了 会提示输入gitee的账号密码</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418210834.png" srcset="/img/loading.gif" alt=""></p><p>完成clone</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418211223.png" srcset="/img/loading.gif" alt=""></p><h3 id="提交本地修改后的代码到自己的仓库"><a href="#提交本地修改后的代码到自己的仓库" class="headerlink" title="提交本地修改后的代码到自己的仓库"></a>提交本地修改后的代码到自己的仓库</h3><p>我这里直接新建了一个文件，然后提交</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418212209.png" srcset="/img/loading.gif" alt=""></p><p>这时候自己gitee上仓库显示的是</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418212301.png" srcset="/img/loading.gif" alt=""></p><h3 id="在gitee上合并自己的仓库到团队仓库"><a href="#在gitee上合并自己的仓库到团队仓库" class="headerlink" title="在gitee上合并自己的仓库到团队仓库"></a>在gitee上合并自己的仓库到团队仓库</h3><p>在自己原创仓库下点击如下按钮</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418212340.png" srcset="/img/loading.gif" alt=""></p><p>点击后如下显示</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418212528.png" srcset="/img/loading.gif" alt=""></p><p>点击右下角创建按钮</p><p>显示如下</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418212623.png" srcset="/img/loading.gif" alt=""></p><p>点击合并就可以了</p><h3 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h3><p>团队仓库显示如下</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200418213053.png" srcset="/img/loading.gif" alt=""></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>潮流程序</title>
     <link href="/2020/04/17/%E6%BD%AE%E6%B5%81%E7%A8%8B%E5%BA%8F/"/>
     <url>/2020/04/17/%E6%BD%AE%E6%B5%81%E7%A8%8B%E5%BA%8F/</url>

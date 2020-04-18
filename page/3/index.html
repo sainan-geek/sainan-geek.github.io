@@ -145,6 +145,60 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200410114056.png" srcset="/img/loading.gif" alt="JavaScript中||{}的意思" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/">
+        <p class="h4 index-header">JavaScript中||{}的意思</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">前言今天看到一段JavaScript代码不知道是什么意思,代码如下:
+var NETWORK = NETWORK || {};解释先看这个||符号，在js里面,||运算符，有个很有意思的用处：
+
+比如（A||B）系统先判断A表达式的布尔值，是真是假。如果为A是真，直接返回A。如果A为假，直接返回B（不会判断B是什么类型）。
+所以，var NETWORK = NETWORK || {};这样写的意思是，先判断NETWORK的值是否为真（也就是判断NETWORK本身是否存在），如果存在，则返回NETWORK。如果NETWORK不存在，则返回后面的{}。最后再将值返回给NETWORK。
+这样写，虽然看着比较复杂点，但是效率高，特别是判断一些变量，属性或者是传参是否存在，如果存在就直接用，不存在，就赋予一个空变量。相当于下面的简写： 
+
+if（NETWORK){   
+    var NETWORK=NETWORK; 
+          }  
+else{ 
+    var NETWORK={}    //将一个空对象传给a  
+    }参考链接知乎问题参考
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-31&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200410113955.png" srcset="/img/loading.gif" alt="arguments的使用" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
