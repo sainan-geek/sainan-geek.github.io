@@ -145,6 +145,80 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/" target="_self">
+          <img src="https://gitee.com/saian/blogimage/raw/master//20200513075257.png" srcset="/img/loading.gif" alt="nodejs安装及配置" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+        <p class="h4 index-header">nodejs安装及配置</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">window10下nodejs安装及配置1.下载国内官网下载地址：http://nodejs.cn/download/
+选择对应的版本下载就好
+
+2.安装点击下载好的安装包，如下页面出现后。先点击Next。
+
+
+接受协议
+
+
+选择安装位置，我这里选择默认的。
+
+
+直接点Next
+
+
+我这里没有勾选，后续需要什么模块，我自己安装。
+
+
+安装完成后打开命令行窗口，输入node -v测试是否安装成功。
+
+
+3.配置npm默认下载地址在国外，为了下载模块时更快。要进行一个第三方模块nrm的下载。nrm可以进行npm下载地址的切换。
+
+先下载使用npm install nrm -g下载。（-g是全局安装）
+
+
+切换可用下载地址列表 nrm ls
+
+
+切换npm下载地址 nrm use 下载地址名称，我这里用淘宝
+
+done.
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/04/20/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/" target="_self">
           <img src="https://gitee.com/saian/blogimage/raw/master//20200420182058.png" srcset="/img/loading.gif" alt="JavaScript函数的定义和调用" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -689,63 +763,11 @@ function Star(uname, age) {
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/" target="_self">
-          <img src="https://gitee.com/saian/blogimage/raw/master//20200412084159.png" srcset="/img/loading.gif" alt="JavaScript实现table栏切换" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/04/12/JavaScript%E5%AE%9E%E7%8E%B0tab%E6%A0%8F%E5%88%87%E6%8D%A2/">
-        <p class="h4 index-header">JavaScript实现table栏切换</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">涉及到的新知识在调用函数时为什么有的要加小括号有的不加小括号加小括号之后表示这个函数立即执行，不加小括号是触发某一事件执行
-如下代码就是为了实现当按键被点击之后执行函数
- this.lis[i].onclick = this.toggleTab;
-this指向问题在全局函数中this等于windows,当函数作为某个对象的方法被调用时，this等于那个对象
-下图中的this指向的就是新new出的对象，声明变量that是为了保存这里的this指向的tab对象，在以后代码中使用。
-
-​    控制台输出这里的this对象如下
-
-在tab栏切换中如何实现样式的切换先把其他栏样式清除，然后为当前栏设置样式
-在tab栏中新增的栏位样式怎么控制这里的栏位包含两个元素li和span，具体实现方法就是在添加后重新获取li和span，获取的方法独立出一个函数。
-双击禁止选中文字 window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
-js代码如下var that; //为了获取</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JavaScript">JavaScript</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

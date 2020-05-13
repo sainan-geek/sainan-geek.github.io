@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Archives ~ sainan&#39;s blog</title>
+  <title>nodejs安装及配置 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/earth.jpeg')no-repeat center center;
+         style="background: url('https://gitee.com/saian/blogimage/raw/master//20200513075257.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -117,6 +117,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Wednesday, May 13th 2020, 7:50 am
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    220 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -128,35 +163,116 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">31 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/12/29/linux/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">linux常用命令</span>
-      <span style="float: right;">12-29</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="window10下nodejs安装及配置"><a href="#window10下nodejs安装及配置" class="headerlink" title="window10下nodejs安装及配置"></a>window10下nodejs安装及配置</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><p>国内官网下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a></p>
+<p>选择对应的版本下载就好</p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//20200513081225.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>点击下载好的安装包，如下页面出现后。先点击Next。</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081419804.png" srcset="/img/loading.gif" style="zoom:50%;" />
 
-              </div>
-            </div>
+<p>接受协议</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081610540.png" srcset="/img/loading.gif" style="zoom:50%;" />
+
+<p>选择安装位置，我这里选择默认的。</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081738811.png" srcset="/img/loading.gif" style="zoom:50%;" />
+
+<p>直接点Next</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081815454.png" srcset="/img/loading.gif" style="zoom:50%;" />
+
+<p>我这里没有勾选，后续需要什么模块，我自己安装。</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081845185.png" srcset="/img/loading.gif" style="zoom:50%;" />
+
+<p>安装完成后打开命令行窗口，输入<code>node -v</code>测试是否安装成功。</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//20200513082521.png" srcset="/img/loading.gif" style="zoom:50%;" />
+
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h2><p>npm默认下载地址在国外，为了下载模块时更快。要进行一个第三方模块nrm的下载。nrm可以进行npm下载地址的切换。</p>
+<ol>
+<li><p>先下载使用<code>npm install nrm -g</code>下载。（-g是全局安装）</p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//20200513084940.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>切换可用下载地址列表 nrm ls</p>
+<img src="https://gitee.com/saian/blogimage/raw/master//image-20200513085028202.png" srcset="/img/loading.gif" style="zoom:50%;" />
+</li>
+<li><p>切换npm下载地址 nrm use 下载地址名称，我这里用淘宝</p>
+<p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513085113120.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="done"><a href="#done" class="headerlink" title="done."></a>done.</h2></li>
+</ol>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -235,6 +351,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -275,7 +396,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "nodejs安装及配置&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

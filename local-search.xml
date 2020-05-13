@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>nodejs安装及配置</title>
+    <link href="/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
+    <url>/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="window10下nodejs安装及配置"><a href="#window10下nodejs安装及配置" class="headerlink" title="window10下nodejs安装及配置"></a>window10下nodejs安装及配置</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><p>国内官网下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a></p><p>选择对应的版本下载就好</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200513081225.png" srcset="/img/loading.gif" alt=""></p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>点击下载好的安装包，如下页面出现后。先点击Next。</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081419804.png" srcset="/img/loading.gif" style="zoom:50%;" /><p>接受协议</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081610540.png" srcset="/img/loading.gif" style="zoom:50%;" /><p>选择安装位置，我这里选择默认的。</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081738811.png" srcset="/img/loading.gif" style="zoom:50%;" /><p>直接点Next</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081815454.png" srcset="/img/loading.gif" style="zoom:50%;" /><p>我这里没有勾选，后续需要什么模块，我自己安装。</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513081845185.png" srcset="/img/loading.gif" style="zoom:50%;" /><p>安装完成后打开命令行窗口，输入<code>node -v</code>测试是否安装成功。</p><img src="https://gitee.com/saian/blogimage/raw/master//20200513082521.png" srcset="/img/loading.gif" style="zoom:50%;" /><h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h2><p>npm默认下载地址在国外，为了下载模块时更快。要进行一个第三方模块nrm的下载。nrm可以进行npm下载地址的切换。</p><ol><li><p>先下载使用<code>npm install nrm -g</code>下载。（-g是全局安装）</p><p><img src="https://gitee.com/saian/blogimage/raw/master//20200513084940.png" srcset="/img/loading.gif" alt=""></p></li><li><p>切换可用下载地址列表 nrm ls</p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513085028202.png" srcset="/img/loading.gif" style="zoom:50%;" /></li><li><p>切换npm下载地址 nrm use 下载地址名称，我这里用淘宝</p><p><img src="https://gitee.com/saian/blogimage/raw/master//image-20200513085113120.png" srcset="/img/loading.gif" alt=""></p><h2 id="done"><a href="#done" class="headerlink" title="done."></a>done.</h2></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript函数的定义和调用</title>
     <link href="/2020/04/20/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/"/>
     <url>/2020/04/20/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8/</url>
