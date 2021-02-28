@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>Vim常用方法记录</title>
+    <link href="/2021/02/28/Vim%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/"/>
+    <url>/2021/02/28/Vim%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vim常用操作"><a href="#Vim常用操作" class="headerlink" title="Vim常用操作"></a>Vim常用操作</h1><h2 id="1-临时显示行号"><a href="#1-临时显示行号" class="headerlink" title="1.临时显示行号"></a>1.临时显示行号</h2><p>:set nu 或者 :set number </p><h2 id="2-取消显示行号"><a href="#2-取消显示行号" class="headerlink" title="2.取消显示行号"></a>2.取消显示行号</h2><p>:set nonuember 或者 :set nonu</p><h2 id="3-永久显示行号"><a href="#3-永久显示行号" class="headerlink" title="3.永久显示行号"></a>3.永久显示行号</h2><p>vim  ~/.vimrc 最后一行加上 :set number</p><h2 id="4-跨文件复制粘贴"><a href="#4-跨文件复制粘贴" class="headerlink" title="4.跨文件复制粘贴"></a>4.跨文件复制粘贴</h2><ol><li><p>先打开一个文件 </p></li><li><p>在普通模式下输入:sp进行分屏操作。:vsp是纵向分屏</p></li><li><p>在普通模式下输入:e a.go 就能在另外一个窗口打开a.go了</p></li><li><p>在普通模式下，把光标移到你需要复制内容的起始行，然后输入你想复制的行的数量（从光标所在行往下计算），在行数后面接着输入yy，这样就将内容复制到临时寄存器里 了（在 普通模式下ctrl+w，再按一下w，可以在两个窗口之间切换） 从第一行到第二十行就20yy。然后切换到想复制的窗口按p.</p><h2 id="5-在当前行下一行插入"><a href="#5-在当前行下一行插入" class="headerlink" title="5. 在当前行下一行插入"></a>5. 在当前行下一行插入</h2></li></ol><p>o</p><h2 id="6-跳到文件的最后一行"><a href="#6-跳到文件的最后一行" class="headerlink" title="6.跳到文件的最后一行"></a>6.跳到文件的最后一行</h2><p>G</p><h2 id="7-在行末尾添加"><a href="#7-在行末尾添加" class="headerlink" title="7.在行末尾添加"></a>7.在行末尾添加</h2><p>A</p><h2 id="8-跳到文件的最前一行"><a href="#8-跳到文件的最前一行" class="headerlink" title="8.跳到文件的最前一行"></a>8.跳到文件的最前一行</h2><p>gg</p><h2 id="9-跳到指定行"><a href="#9-跳到指定行" class="headerlink" title="9.跳到指定行"></a>9.跳到指定行</h2><p>4gg 跳转到第四行</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>jQuery选择器</title>
+    <link href="/2020/05/30/jQuery%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <url>/2020/05/30/jQuery%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="jQuery筛选选择器"><a href="#jQuery筛选选择器" class="headerlink" title="jQuery筛选选择器"></a>jQuery筛选选择器</h2><table><thead><tr><th>语法</th><th>用法</th><th>描述</th></tr></thead><tbody><tr><td>:first</td><td>$(‘li:first’)</td><td>获取第一个li元素</td></tr><tr><td>:last</td><td>$(‘li:last’)</td><td>获取最后一个li元素</td></tr><tr><td>:eq(index)</td><td>$(‘li:eq(2)’)</td><td>获取到的li元素中，选择索引号为2的元素，索引号从0开始</td></tr><tr><td>:odd</td><td>$(‘li:odd’)</td><td>获取到的li元素中，选择索引号为奇数的元素</td></tr><tr><td>:even</td><td>$(‘li:even’)</td><td>获取到的li元素中，选择索引号为偶数的元素</td></tr></tbody></table><pre><code class="javascript">$(function() {        $(&quot;ul li:eq(3)&quot;).css(&quot;background&quot;, &quot;pink&quot;);    })</code></pre><h2 id="jQuery筛选方法"><a href="#jQuery筛选方法" class="headerlink" title="jQuery筛选方法"></a>jQuery筛选方法</h2><table><thead><tr><th>语法</th><th>用法</th><th>说明</th></tr></thead><tbody><tr><td><strong>parent()</strong></td><td>$(“li”).parent();</td><td>查找父级</td></tr><tr><td><strong>children</strong>(selector)</td><td>$(“ul”).children(“li”)</td><td>相当于$(“ul&gt;li”)，最近一级(亲儿子)</td></tr><tr><td><strong>find</strong>(selector)</td><td>$(“ul”).find(“li”)</td><td>相当于$(“ul li”)，后代选择器</td></tr><tr><td><strong>siblings</strong>(selector)</td><td>$(“.first”).siblings(“li”)</td><td>查找兄弟节点，不包括自己本身</td></tr><tr><td>nextAll([expr])</td><td>$(“.first”).nextAll()</td><td>查找当前元素之后的所有的同辈元素</td></tr><tr><td>prevtAll([expr])</td><td>$(“.last”).prevtAll()</td><td>查找当前元素之前的所有的同辈元素</td></tr><tr><td>hasClass(class)</td><td>$(“.div”).hasClass(“protected”)</td><td>检查当前的元素是否含有某个特定的类，如果有返回true</td></tr><tr><td><strong>eq</strong>(index)</td><td>$(“li”).eq(2);</td><td>相当于$(“li:eq(2)”)，index从0开始</td></tr></tbody></table><pre><code class="javascript">    $(function() {        //父 parent() 最近一级的        console.log($(&#39;.son&#39;).parent());        //子 children()子代选择器        //只选亲儿子        console.log($(&#39;.nav&#39;).children(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;));        //选儿子和孙子        console.log($(&#39;.nav&#39;).find(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;));    }) $(function() {        // $(&quot;ol .item&quot;).siblings(&quot;li&quot;).css(&quot;color&quot;, &quot;blue&quot;);        $(&quot;ol .item&quot;).nextAll(&quot;li&quot;).css(&quot;color&quot;, &quot;green&quot;);        $(&quot;ol .item&quot;).prevAll(&quot;li&quot;).css(&quot;color&quot;, &quot;blue&quot;);        //查找第n个元素        // $(&quot;ul li:eq(2)&quot;).css(&quot;color&quot;, &quot;orange&quot;);        // 推荐写法        $(&quot;ul li&quot;).eq(2).css(&quot;color&quot;, &quot;orange&quot;);        console.log($(&quot;div:last&quot;).hasClass(&quot;current&quot;));    })</code></pre><h2 id="jQuery排他思想"><a href="#jQuery排他思想" class="headerlink" title="jQuery排他思想"></a>jQuery排他思想</h2><pre><code class="javascript">    $(function() {        // 1.隐式迭代给所有按钮都绑定了点击事件        $(&#39;button&#39;).click(function() {            //2.当前元素变化背景颜色            $(this).css(&quot;background&quot;, &quot;pink&quot;);            //3.其余兄弟去掉背景颜色            $(this).siblings(&quot;button&quot;).css(&quot;background&quot;, &quot;&quot;);        })    })</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MongoDB基本操作</title>
+    <link href="/2020/05/30/MongoDB/"/>
+    <url>/2020/05/30/MongoDB/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-启动服务"><a href="#1-启动服务" class="headerlink" title="1. 启动服务"></a>1. 启动服务</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>nodejs安装及配置</title>
     <link href="/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
     <url>/2020/05/13/nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>

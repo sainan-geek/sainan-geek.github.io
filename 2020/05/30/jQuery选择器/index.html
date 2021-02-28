@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Categories - 技术学习 ~ sainan&#39;s blog</title>
+  <title>jQuery选择器 ~ sainan&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -118,6 +118,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Saturday, May 30th 2020, 8:41 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    502 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -128,102 +163,201 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">10 posts in total.</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/04/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">正则表达式2</span>
-      <span style="float: right;">04-04</span>
-    </a>
-  
-    
-    <a href="/2020/04/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">正则表达式</span>
-      <span style="float: right;">04-02</span>
-    </a>
-  
-    
-    <a href="/2020/04/01/JavaScript%E9%97%AD%E5%8C%85/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript闭包</span>
-      <span style="float: right;">04-01</span>
-    </a>
-  
-    
-    <a href="/2020/04/01/String%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">macos下hexo博客命令行git提交需要输入ssh的密码问题</span>
-      <span style="float: right;">04-01</span>
-    </a>
-  
-    
-    <a href="/2020/04/01/macos%E4%B8%8Bhexo%E5%8D%9A%E5%AE%A2%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E6%8F%90%E4%BA%A4%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5ssh%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">macos下hexo博客命令行git提交需要输入ssh的密码问题</span>
-      <span style="float: right;">04-01</span>
-    </a>
-  
-    
-    <a href="/2020/03/31/JavaScript%E4%B8%AD-%E7%9A%84%E6%84%8F%E6%80%9D/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript中||{}的意思</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/31/arguments%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">arguments的使用</span>
-      <span style="float: right;">03-31</span>
-    </a>
-  
-    
-    <a href="/2020/03/30/JavaScript%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript参数问题</span>
-      <span style="float: right;">03-30</span>
-    </a>
-  
-    
-    <a href="/2020/03/29/windows%E4%B8%8B%E7%9A%84hexo%E8%BD%AC%E7%A7%BB%E5%88%B0mac%E5%B9%B3%E5%8F%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">windows下的hexo转移到mac平台</span>
-      <span style="float: right;">03-29</span>
-    </a>
-  
-    
-    <a href="/2020/02/12/ArrayList%E7%B1%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ArrayList类</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">1</a><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/page/4/">4</a><a class="extend next" rel="next" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/page/4/"><i class="fas fa-angle-double-right"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="jQuery筛选选择器"><a href="#jQuery筛选选择器" class="headerlink" title="jQuery筛选选择器"></a>jQuery筛选选择器</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:first</td>
+<td>$(‘li:first’)</td>
+<td>获取第一个li元素</td>
+</tr>
+<tr>
+<td>:last</td>
+<td>$(‘li:last’)</td>
+<td>获取最后一个li元素</td>
+</tr>
+<tr>
+<td>:eq(index)</td>
+<td>$(‘li:eq(2)’)</td>
+<td>获取到的li元素中，选择索引号为2的元素，索引号从0开始</td>
+</tr>
+<tr>
+<td>:odd</td>
+<td>$(‘li:odd’)</td>
+<td>获取到的li元素中，选择索引号为奇数的元素</td>
+</tr>
+<tr>
+<td>:even</td>
+<td>$(‘li:even’)</td>
+<td>获取到的li元素中，选择索引号为偶数的元素</td>
+</tr>
+</tbody></table>
+<pre><code class="javascript">$(function() {
+        $(&quot;ul li:eq(3)&quot;).css(&quot;background&quot;, &quot;pink&quot;);
+    })</code></pre>
+<h2 id="jQuery筛选方法"><a href="#jQuery筛选方法" class="headerlink" title="jQuery筛选方法"></a>jQuery筛选方法</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>用法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>parent()</strong></td>
+<td>$(“li”).parent();</td>
+<td>查找父级</td>
+</tr>
+<tr>
+<td><strong>children</strong>(selector)</td>
+<td>$(“ul”).children(“li”)</td>
+<td>相当于$(“ul&gt;li”)，最近一级(亲儿子)</td>
+</tr>
+<tr>
+<td><strong>find</strong>(selector)</td>
+<td>$(“ul”).find(“li”)</td>
+<td>相当于$(“ul li”)，后代选择器</td>
+</tr>
+<tr>
+<td><strong>siblings</strong>(selector)</td>
+<td>$(“.first”).siblings(“li”)</td>
+<td>查找兄弟节点，不包括自己本身</td>
+</tr>
+<tr>
+<td>nextAll([expr])</td>
+<td>$(“.first”).nextAll()</td>
+<td>查找当前元素之后的所有的同辈元素</td>
+</tr>
+<tr>
+<td>prevtAll([expr])</td>
+<td>$(“.last”).prevtAll()</td>
+<td>查找当前元素之前的所有的同辈元素</td>
+</tr>
+<tr>
+<td>hasClass(class)</td>
+<td>$(“.div”).hasClass(“protected”)</td>
+<td>检查当前的元素是否含有某个特定的类，如果有返回true</td>
+</tr>
+<tr>
+<td><strong>eq</strong>(index)</td>
+<td>$(“li”).eq(2);</td>
+<td>相当于$(“li:eq(2)”)，index从0开始</td>
+</tr>
+</tbody></table>
+<pre><code class="javascript">    $(function() {
+        //父 parent() 最近一级的
+        console.log($(&#39;.son&#39;).parent());
 
+        //子 children()子代选择器
+        //只选亲儿子
+        console.log($(&#39;.nav&#39;).children(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;));
+        //选儿子和孙子
+        console.log($(&#39;.nav&#39;).find(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;));
 
+    })
 
-              </div>
-            </div>
+ $(function() {
+        // $(&quot;ol .item&quot;).siblings(&quot;li&quot;).css(&quot;color&quot;, &quot;blue&quot;);
+        $(&quot;ol .item&quot;).nextAll(&quot;li&quot;).css(&quot;color&quot;, &quot;green&quot;);
+        $(&quot;ol .item&quot;).prevAll(&quot;li&quot;).css(&quot;color&quot;, &quot;blue&quot;);
+        //查找第n个元素
+        // $(&quot;ul li:eq(2)&quot;).css(&quot;color&quot;, &quot;orange&quot;);
+        // 推荐写法
+        $(&quot;ul li&quot;).eq(2).css(&quot;color&quot;, &quot;orange&quot;);
+        console.log($(&quot;div:last&quot;).hasClass(&quot;current&quot;));
+
+    })</code></pre>
+<h2 id="jQuery排他思想"><a href="#jQuery排他思想" class="headerlink" title="jQuery排他思想"></a>jQuery排他思想</h2><pre><code class="javascript">    $(function() {
+        // 1.隐式迭代给所有按钮都绑定了点击事件
+        $(&#39;button&#39;).click(function() {
+            //2.当前元素变化背景颜色
+            $(this).css(&quot;background&quot;, &quot;pink&quot;);
+            //3.其余兄弟去掉背景颜色
+            $(this).siblings(&quot;button&quot;).css(&quot;background&quot;, &quot;&quot;);
+        })
+    })</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JavaScript">JavaScript</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -302,6 +436,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -342,7 +481,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Category - 技术学习&nbsp;",
+        "jQuery选择器&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
