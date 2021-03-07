@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>shell ~ sainan&#39;s blog</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/github-v2.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>sainan's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/earth.jpeg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Sunday, March 7th 2021, 10:55 am
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.2k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      5 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>Shell 是脚本解析器。</p>
+<p>用sudo cat /etc/shells查看有几个解析器</p>
+<p>用echo $0 查看默认bash</p>
+<h1 id="1-写脚本"><a href="#1-写脚本" class="headerlink" title="1.写脚本"></a>1.写脚本</h1><p>#!/bin/bash开头</p>
+<p>在当前目录下/root/datas创建一个laugh.txt，在文件中追加hahahah</p>
+<p>#!/bin/bash</p>
+<p>cd /root/datas<br>touch laugh.txt<br>echo “hahahah” &gt;&gt; laugh.txt</p>
+<h1 id="2-常见系统变量"><a href="#2-常见系统变量" class="headerlink" title="2.常见系统变量"></a>2.常见系统变量</h1><p>$HOME $PWD $SHELL $USER</p>
+<h2 id="2-1自定义变量"><a href="#2-1自定义变量" class="headerlink" title="2.1自定义变量"></a>2.1自定义变量</h2><p> a=2  </p>
+<p>echo $a</p>
+<p>撤销变量 unset a</p>
+<h2 id="2-2只读变量"><a href="#2-2只读变量" class="headerlink" title="2.2只读变量"></a>2.2只读变量</h2><p> readonly B=3  等号两侧不能有空格。 数字字母下划线 不能数字开头</p>
+<p>echo $B</p>
+<p>这里不能unset 机器重启变量才能消失</p>
+<h2 id="2-3变量默认类型都是数据类型都是字符串类型"><a href="#2-3变量默认类型都是数据类型都是字符串类型" class="headerlink" title="2.3变量默认类型都是数据类型都是字符串类型"></a>2.3变量默认类型都是数据类型都是字符串类型</h2><p>无法进行数值运算</p>
+<p>赋值方法 有空格要用字符串</p>
+<p>D=”hahah oh”</p>
+<h2 id="2-4让一个变量全局有效"><a href="#2-4让一个变量全局有效" class="headerlink" title="2.4让一个变量全局有效"></a>2.4让一个变量全局有效</h2><p>在命令行echo D=1 编辑文档时是无法使用的。要想使用要用export D</p>
+<h1 id="3-特殊变量"><a href="#3-特殊变量" class="headerlink" title="3.特殊变量"></a>3.特殊变量</h1><h2 id="3-1-n-n为数字，从0开始-是脚本输入参数。"><a href="#3-1-n-n为数字，从0开始-是脚本输入参数。" class="headerlink" title="3.1$n  n为数字，从0开始 是脚本输入参数。"></a>3.1$n  n为数字，从0开始 是脚本输入参数。</h2><p>#!/bin/bash</p>
+<p>echo “$0 $1 $2”</p>
+<h2 id="3-2-用于输出当前参数数量"><a href="#3-2-用于输出当前参数数量" class="headerlink" title="3.2$# 用于输出当前参数数量"></a>3.2$# 用于输出当前参数数量</h2><h2 id="3-3-这个代表命令行中所有参数"><a href="#3-3-这个代表命令行中所有参数" class="headerlink" title="3.3$*这个代表命令行中所有参数"></a>3.3$*这个代表命令行中所有参数</h2><h2 id="3-4-这个命令也代表命令行中所有参数"><a href="#3-4-这个命令也代表命令行中所有参数" class="headerlink" title="3.4$@这个命令也代表命令行中所有参数"></a>3.4$@这个命令也代表命令行中所有参数</h2><p>root@senan:~/datas# bash special.sh 1 2 </p>
+<p>special.sh 1 2</p>
+<p>2</p>
+<p>1 2</p>
+<p>1 2</p>
+<h2 id="3-5-最后一次执行命令的返回状态"><a href="#3-5-最后一次执行命令的返回状态" class="headerlink" title="3.5$?最后一次执行命令的返回状态"></a>3.5$?最后一次执行命令的返回状态</h2><p> echo $?</p>
+<h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4. 运算符"></a>4. 运算符</h1><p>基本语法</p>
+<p>$((运算式))或 $[运算式]</p>
+<p>exper +，-，\*,/,% 加减乘除，取余。 运算符间必须有空格</p>
+<p>exper 3 + 2</p>
+<p>(2+3)*4</p>
+<p>  expr <code>expr 2 + 3</code> * 4</p>
+<h1 id="5-条件判断"><a href="#5-条件判断" class="headerlink" title="5.条件判断"></a>5.条件判断</h1><p>基本语法</p>
+<p>[condition]</p>
+<p>-lt小于  -le 小于等于</p>
+<p>-eq等于 </p>
+<p>-gt大于 -ge大于等于</p>
+<p>-ne不等于</p>
+<p>-r -w -x   -f -e -d</p>
+<p>判断23是否大于等于22</p>
+<p>[ 23 -ge 22 ]</p>
+<p> echo $?</p>
+<p>&amp;&amp; 表示上一条命令成功后才执行后一条命令。||表示上一条命令失败后才执行下一条命令。</p>
+<p> [ -e passwd ] &amp;&amp; echo OK || echo notok<br>OK<br>[ -e passwd ] &amp;&amp; [ ]  || echo notok<br>notok</p>
+<h1 id="6-流程控制"><a href="#6-流程控制" class="headerlink" title="6.流程控制"></a>6.流程控制</h1><h2 id="6-1if-判断基本语法"><a href="#6-1if-判断基本语法" class="headerlink" title="6.1if 判断基本语法"></a>6.1if 判断基本语法</h2><p>if [ 条件判断式 ]; then</p>
+<p>​    程序</p>
+<p>fi</p>
+<p>或者</p>
+<p>  then换行写不用分号 条件判断式前后有空格</p>
+<p>if[ 条件判断式 ]</p>
+<p>​    then</p>
+<p>​    程序</p>
+<p>fi</p>
+<p>#!/bin/bash</p>
+<p> if [ $1 -eq 1 ]</p>
+<p>  then</p>
+<p>​    echo “I am 1”</p>
+<p> elif [ $1 -eq 2 ]</p>
+<p> then</p>
+<p>​     echo “I am 2”</p>
+<h2 id="6-2™case语句"><a href="#6-2™case语句" class="headerlink" title="6.2™case语句"></a>6.2™case语句</h2><p>#!/bin/bash</p>
+<p>case $1 in<br>1)<br>        echo “I am 1”<br>;;<br>2)<br>        echo “I am 2”<br>;;<br>*)<br>        echo “error”<br>;;<br>esac</p>
+<h2 id="6-3for循环"><a href="#6-3for循环" class="headerlink" title="6.3for循环"></a>6.3for循环</h2><p>#!/bin/bash</p>
+<p>s=0</p>
+<p>for ((i=1;i&lt;=100;i++))</p>
+<p>do</p>
+<p>​    s=$[$s+$i]</p>
+<p>done</p>
+<p>echo $s</p>
+<p>#!/bin/bash</p>
+<p>for i in “$*”</p>
+<p>do</p>
+<p>​    echo “I am test echo $i”</p>
+<p>done</p>
+<p>echo “#######”</p>
+<p>for i in “$@”</p>
+<p>do</p>
+<p>​    echo “I am test echo $i”</p>
+<p>done</p>
+<p>运行结果</p>
+<p>I am test echo 8 9 0 2 4</p>
+<p>#######</p>
+<p>I am test echo 8</p>
+<p>I am test echo 9</p>
+<p>I am test echo 0</p>
+<p>I am test echo 2</p>
+<p>I am test echo 4</p>
+<h2 id="6-4while循环"><a href="#6-4while循环" class="headerlink" title="6.4while循环"></a>6.4while循环</h2><p>#!/bin/bash</p>
+<p>s=0</p>
+<p>i=1</p>
+<p>while [ $i -le 100 ]</p>
+<p>do</p>
+<p>​    s=$[$s + $i]</p>
+<p>​    i=$[$i + 1]</p>
+<p>done</p>
+<p>echo $s</p>
+<h2 id="6-5read读取控制台输出"><a href="#6-5read读取控制台输出" class="headerlink" title="6.5read读取控制台输出"></a>6.5read读取控制台输出</h2><p>-p 提示读取的内容</p>
+<p>-t 提示读取的时间</p>
+<h1 id="7函数"><a href="#7函数" class="headerlink" title="7函数"></a>7函数</h1><h2 id="7-1系统函数"><a href="#7-1系统函数" class="headerlink" title="7.1系统函数"></a>7.1系统函数</h2><h3 id="1-basename-截取文件名称"><a href="#1-basename-截取文件名称" class="headerlink" title="1. basename 截取文件名称"></a>1. basename 截取文件名称</h3><p> basename /Users/sainan/shellplay/if.sh</p>
+<p>if.sh</p>
+<p> basename /Users/sainan/shellplay/if.sh .sh</p>
+<p>if</p>
+<h3 id="dirname截取路径留下"><a href="#dirname截取路径留下" class="headerlink" title="dirname截取路径留下"></a>dirname截取路径留下</h3><p>dirname /Users/sainan/shellplay/while.sh </p>
+<p>/Users/sainan/shellplay</p>
+<h2 id="7-2自定义函数"><a href="#7-2自定义函数" class="headerlink" title="7.2自定义函数"></a>7.2自定义函数</h2><h3 id="1注意事项"><a href="#1注意事项" class="headerlink" title="1注意事项"></a>1注意事项</h3><p>必须在调用函数之前先声明函数</p>
+<p>函数的返回值只能通过$?系统变量获得，可以显示加return 返回，如果不加，将以最后一条命令为返回结果，作为返回值</p>
+<p>计算两个输入参数的和</p>
+<p>#!/bin/bash</p>
+<p>function sum()</p>
+<p>{</p>
+<p>​    s=0;</p>
+<p>​    s=$[$1+$2]</p>
+<p>​    echo $s</p>
+<p>}</p>
+<p>read -p “Input you paratemer1 “ P1</p>
+<p>read -p “Input you paratemer2 “ P2</p>
+<p>sum $P1 $P2</p>
+<h1 id="8-Shell-工具"><a href="#8-Shell-工具" class="headerlink" title="8.Shell 工具"></a>8.Shell 工具</h1><h2 id="8-1cut-按照列切割"><a href="#8-1cut-按照列切割" class="headerlink" title="8.1cut 按照列切割"></a>8.1cut 按照列切割</h2><p>-f 切第几列</p>
+<p>-d 分隔符按照指定分隔符分割</p>
+<p>nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false</p>
+<p>root:*:0:0:System Administrator:/var/root:/bin/sh</p>
+<p>daemon:*:1:1:System Services:/var/root:/usr/bin/false</p>
+<p>执行命令 cut -d “:” -f 3 passwd  后</p>
+<p>-2</p>
+<p>0</p>
+<p>1</p>
+<p>ifconfig eth0</p>
+<p>ifconfig: interface eth0 does not exist</p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 </p>
+<p>en1: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500</p>
+<p>​    options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;</p>
+<p>​    ether 82:f5:b6:23:c8:01 </p>
+<p>​    media: autoselect <full-duplex></p>
+<p>​    status: inactive</p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 | grep “ enther”</p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 | grep “ ether” </p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 | grep “ether” </p>
+<p>​    <strong>ether</strong> 82:f5:b6:23:c8:01 </p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 | grep “ether” | cut -f 2</p>
+<p>ether 82:f5:b6:23:c8:01 </p>
+<p><strong>➜</strong> <strong>shellplay</strong> ifconfig en1 | grep “ether” | cut -d “ “ -f 2</p>
+<p>82:f5:b6:23:c8:01</p>
+<h2 id="8-2-sed切割"><a href="#8-2-sed切割" class="headerlink" title="8.2 sed切割"></a>8.2 sed切割</h2><p>sed是流编辑器，一次处理一行内容。</p>
+<p>sed </p>
+<p>-e 直接在指令的列模式上进行增加</p>
+<p>a 新增</p>
+<p>d 删除</p>
+<p>s 查找并替换</p>
+<h3 id="8-2-1第二行添加了ppppp"><a href="#8-2-1第二行添加了ppppp" class="headerlink" title="8.2.1第二行添加了ppppp"></a>8.2.1第二行添加了ppppp</h3><p>sed “2a ppppp” sed.txt </p>
+<p>eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500</p>
+<p>​    inet 192.168.0.142 netmask 255.255.255.0 broadcast 192.168.0.255</p>
+<p>ppppp</p>
+<h3 id="8-2-2删除了ppppp"><a href="#8-2-2删除了ppppp" class="headerlink" title="8.2.2删除了ppppp"></a>8.2.2删除了ppppp</h3><p>sed “/ppppp/d “ sed.txt </p>
+<p>把全部的RX替换为TX</p>
+<p>sed “s/RX/TX/g” sed.txt </p>
+<p>s是替换，g是全局。</p>
+<h3 id="8-2-3删除第二行同时替换"><a href="#8-2-3删除第二行同时替换" class="headerlink" title="8.2.3删除第二行同时替换"></a>8.2.3删除第二行同时替换</h3><p>sed -e “2d” -e “s/RX/TX/g” sed.txt</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/linux">linux</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <script defer src="https://utteranc.es/client.js"
+          repo="sainan-geek/hexo_talks"
+          issue-term="pathname"
+  
+          label="utterances"
+    
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "shell&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
